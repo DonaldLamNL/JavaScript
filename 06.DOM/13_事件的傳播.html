@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+        }
+
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        #box3{
+            width: 150px;
+            height: 150px;
+            background-color: #bfa;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function(){
+
+            // 分別為三個div綁定單擊響應函數
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var box3 = document.getElementById("box3");
+
+            /*
+                事件的傳播
+                    - 關於事件的傳播，網景和微軟有不同的理解
+                    - 微軟認為事件應該是由內向外傳播，也就是當事件觸發時，應該先觸發當前元素上的事件，
+                        然後再向當前元素上的祖先元素傳播，也就是事件應該再冒泡階段執行「冒泡事件」
+                    - 微軟認為事件應該是由外向內傳播，也就是當事件觸發時，應該先觸發當前元素最外層的祖先元素的事件，
+                        然後再向內傳播給後代元素「捕獲階段」
+                    - W3C綜合了兩個公司的方案，將事件的傳播分成三個階段
+                        1. 捕獲階段
+                            - 在捕獲階段時，從祖先元素向目標元素進行事件的捕獲，但是默認此時不會觸法事件
+                        2. 目標階段
+                            - 事件捕獲到目標元素，捕獲結束，開始在目標元素上觸法事件
+                        3. 冒泡階段
+                            - 事件從目標元素向祖先元素傳遞，依次觸法到祖先元素上的事件
+
+                    - 如果希望在捕獲階段就觸法事件，可以將 addEventListener() 的第三個元素設置為 true
+                        一般情況下，不會希望在捕獲階段觸法事件，所以這個參數一般都是false
+
+            
+            
+            */
+
+            box1.addEventListener("click", function(){
+                alert("box1 響應函數");
+            }, true);
+            box2.addEventListener("click", function(){
+                alert("box2 響應函數");
+            }, true);
+            box3.addEventListener("click", function(){
+                alert("box3 響應函數");
+            }, true);
+        };
+
+
+
+    </script>
+</head>
+<body>
+    
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">3</div>
+            2
+        </div>
+        1
+    </div>
+
+</body>
+</html>

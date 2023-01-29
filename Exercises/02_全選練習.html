@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+
+            var items = document.getElementsByName("items");
+
+            // 1. 全選按鈕：點擊按鈕後，四個多選框全都被選中
+            // 為id為checkedAllBtn綁定單擊響應函數
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                // 遍歷items
+                for(var i = 0; i < items.length; i++){
+                    // 設置四個多選框變成選中
+                    // 通過多選框的checked屬性可以獲取或設置多選框的選中狀態
+                    items[i].checked = true;
+                }
+                checkedAllBox.checked = true;
+            };
+            
+            // 2. 全不選按鈕：點擊按鈕後，四個多選框全都都不選
+            var checkedNoBtn = document.getElementById("checkedNoBtn");
+            checkedNoBtn.onclick = function(){
+                for(var i = 0; i < items.length; i++){
+                    items[i].checked = false;
+                }
+                checkedAllBox.checked = false;
+            };
+            
+            // 3. 反按鈕：點擊按鈕後，選中的不選，不選的選
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick = function(){
+                checkedAllBox.checked = true;
+                for(var i = 0; i < items.length; i++){
+                    items[i].checked = !items[i].checked;
+                    if(!items[i].checked){
+                        checkedAllBox.checked = false;
+                    }
+                }
+            };
+            
+            // 4. 提交按鈕
+            var sendBtn = document.getElementById("sendBtn");
+            sendBtn.onclick = function(){
+                for(var i = 0; i < items.length; i++){
+                    if(items[i].checked){
+                        alert(items[i].id);
+                    }
+                }
+            };
+
+            // 5. 全選全不選框
+            /*
+                在事件的響應函數中，響應函數是給誰綁定的，this就是誰
+            */
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            // 為checkedAllBox綁定單擊響應函數
+            checkedAllBox.onclick = function(){
+                for(var i = 0; i < items.length; i++){
+                    // items[i].checked = checkedAllBox.checked;
+                    items[i].checked = this.checked;    // this就是checkedAllBox
+                }   
+            };
+
+            // 6. items 
+            /*
+                - 如果四個多選框全都選中，則checkedAllBox也應該選中
+                - 如果四個多選框全都沒選中，則checkedAllBox也應該沒選中
+            */
+
+            // 為四個多選框分別綁定點擊響應函數
+
+
+            for(var i = 0; i < items.length; i++){
+                items[i].onclick = function(){
+                    // 判斷4個多選框是否全選
+                    for(var j = 0; j < items.length; j++){
+                        if(!items[j].checked){
+                            checkedAllBox.checked = items[j].checked;
+                            break;
+                        }
+                        checkedAllBox.checked = items[j].checked;
+                    }
+                };
+            }
+        };
+
+
+    </script>
+</head>
+<body>
+    
+    <form method="POST">
+        你愛好的運動是？<input type="checkbox" id="checkedAllBox">全選/全不選
+
+        <br>
+        <input type="checkbox" name="items" id="足球">足球
+        <input type="checkbox" name="items" id="籃球">籃球
+        <input type="checkbox" name="items" id="羽毛球">羽毛球
+        <input type="checkbox" name="items" id="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全 選">
+        <input type="button" id="checkedNoBtn" value="全不選">
+        <input type="button" id="checkedRevBtn" value="反 選">
+        <input type="button" id="sendBtn" value="提 交">
+    </form>
+
+</body>
+</html>

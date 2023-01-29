@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var btn04 = document.getElementById("btn04");
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+
+            {
+                // btn01.onclick = function(){
+
+                //     // 關閉上一個定時器
+                //     clearInterval(timer);
+
+                //     // 開啟定時器用來執行動畫效果
+                //     timer = setInterval(function(){
+
+                //         // 獲取box1原來的left值
+                //         var oldValue = parseInt(getComputedStyle(box1, null)["left"]);
+
+                //         // 在舊值的基礎上增加
+                //         var newValue = oldValue + 13;
+
+                //         // 判斷newValue是否大於等於800
+                //         if(newValue > 800){
+                //             newValue = 800;
+                //         }
+
+                //         // 將新值設置為box1
+                //         box1.style.left = newValue + "px";
+
+                //         // 當元素移動到800px時，使其停止動畫
+                //         if(newValue == 800){
+                //             clearInterval(timer);
+                //         }
+
+                //     }, 30);
+                // };
+
+                // btn02.onclick = function(){
+
+                //     // 關閉上一個定時器
+                //     clearInterval(timer);
+
+                //     // 開啟定時器用來執行動畫效果
+                //     timer = setInterval(function(){
+
+                //         // 獲取box1原來的left值
+                //         var oldValue = parseInt(getComputedStyle(box1, null)["left"]);
+
+                //         // 在舊值的基礎上增加
+                //         var newValue = oldValue - 13;
+
+                //         // 判斷newValue是否大於等於800
+                //         if(newValue < 0){
+                //             newValue = 0;
+                //         }
+
+                //         // 將新值設置為box1
+                //         box1.style.left = newValue + "px";
+
+                //         // 當元素移動到800px時，使其停止動畫
+                //         if(newValue == 0){
+                //             clearInterval(timer);
+                //         }
+
+                //     }, 30);
+                // };
+            }
+
+
+            btn01.onclick = function () {
+
+                move(box1, "left", 0, 20);
+
+            };
+
+            btn02.onclick = function () {
+
+                move(box1, "left", 800, 20);
+
+            };
+
+            btn03.onclick = function () {
+
+                move(box2, "top", 0, 10);
+
+            };
+
+            btn04.onclick = function () {
+
+                move(box2, "width", 800, 10, function () {
+                    move(box2, "height", 400, 10, function () {
+                        move(box2, "top", 50, 10, function () {
+                            move(box2, "left", -400, 10, function () { });
+                        });
+                    });
+                });
+
+            };
+
+            // 嘗試創建一個可以執行簡單動畫的函數
+            /*
+                參數：
+                    1. obj 要執行動畫的對象
+                    2. attr 要執行動畫的樣式
+                    3. target 執行動畫目標的位置
+                    4. speed 移動的速度
+                    5. callback() 回調函數，這個函數將會在動畫執行完畢以後執行
+            */
+
+            /*
+                目前我們定時器的表示由全局變量timer保存
+                    所有的正在執行的定時其都在這個變量中保存
+            
+            */
+            // var timer;
+            {
+                // function move(obj, attr, target, speed, callback) {
+    
+                //     // 關閉上一個定時器
+                //     clearInterval(obj.timer);
+    
+                //     // 獲取元素目前的位置
+                //     var current = parseInt(getComputedStyle(obj, null)[attr]);
+    
+                //     // 判斷速度的正負值
+                //     // 如果從0向800，則speed為正
+                //     // 如果從800向0，則speed為負
+                //     if (current > target) {
+                //         speed = -speed;
+                //     }
+    
+                //     // 開啟定時器用來執行動畫效果
+                //     // 向執行動畫的對象中添加timer屬性用來讓他保存自己定時器的標識
+                //     obj.timer = setInterval(function () {
+    
+                //         // 獲取box1原來的left值
+                //         var oldValue = parseInt(getComputedStyle(obj, null)[attr]);
+    
+                //         // 在舊值的基礎上增加
+                //         var newValue = oldValue + speed;
+    
+                //         // 判斷newValue是否大於等於800
+                //         // 向左移動時，需要判斷 newValue 是否小於target
+                //         // 向右移動時，需要判斷 newValue 是否大於target
+                //         if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+                //             newValue = target;
+                //         }
+    
+                //         // 將新值設置為box1
+                //         obj.style[attr] = newValue + "px";
+    
+                //         // 當元素移動到800px時，使其停止動畫
+                //         if (newValue == target) {
+                //             clearInterval(obj.timer);
+                //             // 動畫執行完畢，調用回調函數
+                //             callback && callback();
+                //         }
+    
+                //     }, 30);
+                // };
+            }
+        
+        };
+
+    </script>
+    <script src="./07_tool.js">
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <button id="btn01">點擊按鈕，box1向左移動</button>
+    <button id="btn02">點擊按鈕，box1向右移動</button>
+    <br>
+    <button id="btn03">點擊按鈕，box2向上移動</button>
+    <button id="btn04">多功能按鈕</button>
+
+    <div id="box1"></div>
+
+    <div id="box2"></div>
+
+    <div style="width: 0; height: 1000px; border-left: 1px black solid; position: absolute; left: 800px; top: 0;"></div>
+
+</body>
+
+</html>

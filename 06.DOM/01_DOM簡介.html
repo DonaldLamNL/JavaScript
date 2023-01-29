@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            DOM簡介：
+                - JS中使用DOM來對HTML文件進行操作
+                D - Document 文檔
+                    - 文檔表示的就是整個HTML網頁文檔
+                O - Object 對象
+                    - 對象表示將網頁中每一個部分都轉換為一個對象
+                        目的是使用面向對象的形式去操作網頁
+                M - Model 模型
+                    - 使用模型來表示對象之間的關係，這樣方便我們獲取對象
+
+                節點Node：
+                    - 節點構成網頁最基本的組合部分，網頁中的每一個部分都可以稱為一個節點
+                    - 雖然是節點，但實際上他們的具體類型是不同的
+                    - 而常用節點分為四類：
+                        1. 文檔節點 整個HTML文檔
+                        2. 元素節點 HTML文檔中的標籤
+                        3. 屬性節點 元素的屬性(id)
+                        4. 文本節點 HTML標籤中的文本內容(content)
+                        ie. <p id = "pId">Lorem ipsum dolor sit amet.</p>
+
+            
+
+
+        */
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <button id="btn">I am a button.</button>
+
+    <script>
+        /*
+            瀏覽器以及為我們提供文檔節點對象，這個對象是window屬性
+                可以在頁面中直接使用，文檔節點代表的是整個網頁
+        
+        */
+
+        // console.log(document);
+
+        // 獲取button對象
+        var btn = document.getElementById("btn");
+
+        // 修改按鈕的文字
+        btn.innerHTML = "I'm Button";
+
+
+
+
+
+
+    </script>
+</body>
+</html>

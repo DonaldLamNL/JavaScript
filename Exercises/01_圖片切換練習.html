@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer{
+            width: 200px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: #bfa;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        window.onload = function(){
+            /*
+                點擊按鈕切換圖片
+            
+            */
+
+            // 獲取按鈕
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+
+
+            /*
+                要切換圖片，就是要修改img標籤的src屬性
+            */
+
+            // 獲取img
+            var img = document.getElementsByTagName("img")[0];
+
+            // 創建一個數組來保存圖片的路徑
+            var imgArr = ["./Resources/01/1.jpg","./Resources/01/2.jpg","./Resources/01/3.jpg","./Resources/01/4.jpg","./Resources/01/5.jpg"];
+
+            // 創建變量來保存當前顯示圖片的索引
+            var index = 0;
+
+            // 設置提示文字
+            // 獲取info
+            var info = document.getElementById("info");
+            info.innerHTML = "一共" + imgArr.length + "張圖片，當前第" + (index + 1) + "張";
+
+            // 分別綁定單擊響應函數
+            prev.onclick = function(){
+                if(index == 0){
+                    index = imgArr.length - 1;
+                    
+                }else{
+                    index--;
+                }
+                img.src = imgArr[index];
+                info.innerHTML = "一共5張圖片，當前第" + (index + 1) + "張";
+
+            };
+            next.onclick = function(){
+                // 切換圖片就是修改img的src屬性
+                // 要修改一個元素的屬性 元素.屬性 = 屬性值;
+                if(index == imgArr.length - 1){
+                    index = 0;
+                }else{
+                    index++;
+                }
+                img.src = imgArr[index];
+                info.innerHTML = "一共5張圖片，當前第" + (index + 1) + "張";
+            };
+
+
+
+            
+
+
+
+        };
+
+    </script>
+</head>
+<body>
+    
+    <div id="outer">
+
+        <p id="info"></p>
+        
+        <img src="./Resources/01/1.jpg" alt="">
+
+        <button id="prev">上一張</button>
+        <button id="next">下一張</button>
+
+    </div>
+
+</body>
+</html>

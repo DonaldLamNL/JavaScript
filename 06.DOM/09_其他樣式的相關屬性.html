@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            padding: 10px;
+            border: 10px solid yellow;
+        }
+
+        #box2 {
+            padding: 100px;
+            background-color: cyan;
+        }
+
+        #box4 {
+            width: 200px;
+            height: 300px;
+            background-color: #bfa;
+            overflow: scroll;
+        }
+
+        #box5 {
+            width: 450px;
+            height: 600px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script>
+
+        window.onclick = function () {
+            var box1 = document.getElementById("box1");
+            var box4 = document.getElementById("box4");
+            var btn01 = document.getElementById("btn01");
+
+            btn01.onclick = function () {
+                /*
+                    clientWidth
+                    clientHeight
+                        - 這兩個屬性可以獲取元素的可見高度和可見寬度
+                        - 這些屬性都是不帶px，返回的都是純數值，可以直接計算
+                        - 會獲取元素的寬度和高度，包括內容區和內邊距(不包括邊框)
+                        - 這些屬性都是只讀的，不可修改
+                */
+                // alert("clientHeight = " + box1.clientHeight);
+
+
+                /*
+                    offsetWidth
+                    offsetHeight
+                        - 可以獲取整個元素的高度和寬度，包括內容區、內邊距和邊框
+                */
+                // alert("offsetHeight = " + box1.offsetHeight);
+
+
+                /*
+                    offsetParent
+                        - 可以用來獲取當前元素的定位父元素
+                        - 會獲取到離當前元素最近開啟了定位祖先元素
+                            如果所有的祖先元素都沒有開啟定位，則返回body
+                */
+                // alert(box1.offsetParent.id);
+
+
+                /*
+                    offsetLeft
+                        - 當前元素相對其定位父元素(offsetParent)的水平偏移量
+                        offsetTop
+                        - 當前元素相對其定位父元素的垂直偏移量
+                */
+                // alert(box1.offsetLeft);
+
+
+                /*
+                    scrollHeight
+                    scrollWidth
+                        - 可以獲取元素整個滾動區域的高度和寬度
+                
+                */
+                // alert(box4.scrollHeight);
+
+
+                /*
+                    scrollLeft
+                        - 可以獲取水平滾動條滾動的距離
+                    scrollTop
+                        - 可以獲取垂直滾動條滾動的距離
+                */
+                // alert(box4.scrollLeft);
+
+
+                /*
+
+                    當滿足 scrollHeight - scrollTop == clientHeight
+                        說明垂直滾動條滾動到底
+                    當滿足 scrollWidth - scrollLeft == clientWidth
+                        說明水平滾動條滾動到底
+                */
+                alert(box4.scrollHeight - box4.scrollTop);
+
+
+            };
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <button id="btn01">Click Me</button>
+
+    <br>
+
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+
+    <br>
+
+    <div id="box3">
+        <div id="box2" style="position: relative;">
+            <div id="box1"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

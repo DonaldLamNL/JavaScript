@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var per = new Person("Tom", 18, "M");
+
+        /*
+            當直接在頁面中打印一個對象時，實際上是輸出對象的toString()方法的返回值
+                如果我們希望輸出對象時不輸出[object Object]，可以為對象添加一個toString()方法
+        
+        
+        */
+
+        per.__proto__.toString = function(){
+            return "I am a Person.";
+        }
+
+        var result = per.toString();
+        console.log(per);
+        console.log("result = " + result);
+        console.log(per.__proto__.__proto__.hasOwnProperty("toString"));    //true
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #box1{
+            width: 50px;
+            height: 50px;
+            background-image: url(./Resources/05/01.png);
+            background-size: contain;
+            /* 
+                開啟box1的絕對定位
+            */
+            position: absolute;
+            visibility: hidden;
+        }
+
+    </style>
+
+    <script>
+
+        window.onload = function(){
+            /*
+                使div跟隨鼠標移動
+            */
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                event = event || window.event;
+                /*
+                    clientX 和 clientY
+                        用於獲取鼠標在當前可見窗口的座標
+                    div的偏移量，是相對於整個頁面的
+
+                    pageX和pageY可以獲取鼠標相對於頁面的座標
+                
+                
+                */
+                // var left = event.pageX;
+                // var top = event.pageY;
+
+                
+                var left = event.clientX + document.documentElement.scrollLeft;
+                var top = event.clientY + document.documentElement.scrollTop;
+
+                // 設置div偏移量
+                box1.style.left = left + "px";
+                box1.style.top = top + "px";
+                box1.style.visibility = "visible";
+            };
+
+        };
+
+
+
+    </script>
+
+</head>
+<body style = "height: 1000px;">
+
+    <div id="box1"></div>
+
+</body>
+</html>

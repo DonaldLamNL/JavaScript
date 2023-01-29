@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            基本數據類型
+                String Number Boolean Null Undefined
+            引用數據類型
+                Object
+
+            在JS中為我們提供了三個包裝類，通過這三個包裝類可以將基本數據類型的數據轉換為對象
+                String()
+                    - 可以將基本數據類型的字符串轉換為String對象
+                Number()
+                    - 可以將基本數據類型的數值轉換為Number對象
+                Boolean()
+                    - 可以將基本數據類型的布爾值轉換為Boolean對象
+                - 但是注意：我們在開發應用中不會使用基本數據類型的對象
+                    如果使用基本數據類型的對象，在做一些比較時可能會帶來一些不可預期的結果
+        */
+
+        // 創建一個Number類型的對象 
+        var num = new Number(3);
+        var num2 = new Number(3);
+        var str = new String("Hello");
+        var bool = new Boolean(true);
+        var bool2 = true;
+
+        // 可以向num中添加屬性
+        num.hello = "abcdefg";
+
+        console.log(num == num2);       // false    // 比較的是兩個對象的地址
+        console.log(bool == bool2);     // true     // 自動轉換了類型
+
+        console.log(num.hello);
+        
+        var s = 123;
+
+        
+        /*
+            方法和屬性只能添加給對象，不能添加給基本數據類型
+                - 當我們對一些基本數據類型的值去調用屬性和方法時，
+                    瀏覽器會臨時使用包裝類將其轉換為對象，然後再調用對象的屬性和方法
+                    調用完以後，再將其轉換為基本數據類型
+        */
+       s = s.toString();
+       console.log(s);
+       console.log(typeof s);
+       
+       s.hello = "hello";      // 並沒有報錯
+       console.log(s.hello);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            正則表達式的其他語法
+                1. 量詞
+                    - 通過量詞可以設置一個內容出現的次數
+                    - 量詞只對他前面的第一內容起作用
+                    - {n} 正好出現n次
+                    - {m,n} 出現m到n次
+                    - {m,} 出現m次以上
+                    - + 至少一個，相當於{1,}
+                    - * 0個或多個，相當於{0,}
+                    - ? 0或1個，相當於{0,1}
+        */
+
+        var reg = /a{3}/;       // == aaa
+        console.log(reg.test("kjhaaahgvhb"));       // true
+
+        reg = /(ab){3}/;        // == ababab
+        console.log(reg.test("abababyg"));          // true
+
+        reg = /ab{1,3}c/;       // == ab(1-3次)c
+        console.log(reg.test("abbc"));              // true
+        
+        reg = /ab+c/;       // == ab(至少一個)c
+        console.log(reg.test("abbbbbbc"));          // true
+
+        reg = /ab*c/;       // == ab(有沒有都行)c
+        console.log(reg.test("ac"));                // true
+        
+        reg = /ab?c/;       // == ab(0或1個)c
+        console.log(reg.test("abbc"));              // true
+
+
+
+        console.log("==================================");
+        /*
+            正則表達式的其他語法
+                2. 檢查開頭
+                    - ^ 表示開頭
+                    - $ 表示結尾
+                    - 如果同時使用 ^和$ 則要求字符串必須符合正則表達式
+        */
+
+        reg = /^a/;
+        console.log(reg.test("bcabc"));       // false
+        
+        reg = /a$/;
+        console.log(reg.test("bcabca"));      // false
+        
+        reg = /^a$/;
+        console.log(reg.test("aaa"));         // false
+        
+        reg = /^a|a$/;
+        console.log(reg.test("abc"));         // true
+        
+
+        console.log("==================================");
+        /*
+            正則表達式的其他語法
+                3. 檢查特殊含義
+                    . 表示任意字符
+                    在正則表達式中，使用\作為轉意字符
+                        - \. 表示.
+                        - \\ 表示\
+
+                    注意：使用構造函數時，由於參數是字符串而 \ 是字符串中的轉義字符
+                        所以如果要使用 \ ，則需要使用 \\ 來代替
+
+                    \w
+                        - 表示任意字母、數字、_     == [A-z0-9_]
+                    \W
+                        - 除了字母、數字、_     == [^A-z0-9_]
+                            和\w正好相反
+                    \d
+                        - 任意的數字    == [0-9]
+                    \D
+                        - 除了數字      == [^0-9]
+                    \s
+                        - 空格
+                    \S
+                        - 除了空格
+                    \b
+                        - 單詞邊界
+                    \B
+                        - 除了單詞邊界
+                    
+        */
+
+        reg = /./;
+        console.log(reg.test("kjhuyrd"));     // true
+        
+        reg = /\./;
+        console.log(reg.test(".da..fas"));    // true
+        
+        reg = new RegExp("\.");
+        console.log(reg.test("kjhuyrd"));     // true
+        
+        reg = new RegExp("\\.");
+        console.log(reg.test("kjhuyrd"));     // false
+        
+        // 檢查一個字符串中是否含有 child
+        reg = /child/;
+        console.log(reg.test("hello children"));    // true
+        reg = /\bchild\b/;
+        console.log(reg.test("hello children"));    // false
+
+
+        console.log("==================================");
+        /*
+            4. 去除空格方法
+        */ 
+
+        // 接收一個用戶輸入
+        // var str = prompt("輸入你的用戶名：");
+        
+        str = "        hello   world        ";
+        
+        // 去除掉字符串中的空格
+        str = str.replace(/\s/g, "");
+        console.log(str);
+        
+        str = "        hello   world        ";
+        // 去除掉字符串中開頭和結尾的空格
+        str = str.replace(/^\s*|\s*$/g, "");
+        console.log(str);
+
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

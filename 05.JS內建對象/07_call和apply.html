@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            函數的方法：call() 和 apply()
+                - 這兩個都是函數對象的方法，都需要通過函數對象來調用
+                - 當函數調用這兩個方法，都會調用函數執行
+                - 在調用 call() 和 apply() 可以將一個對象指定為第一個參數
+                    此時這個對象將會成為函數執行時的this
+
+                - call() 方法可以將實參在對象之後依次傳遞
+                - apply() 方法需要將實參封裝到一個數組統一傳遞
+
+                - this的情況：
+                    1. 以函數形式調用：this永遠是window
+                    2. 以方法的形式調用：this是方法的對象
+                    3. 以構造函數的形式調用：this是新創建的對象
+                    4. 以call和apply調用時：this是指定的那個對象
+        
+        */
+
+        var obj = {
+            name: "obj",
+            sayName: function(){
+                alert(this.name);
+            }
+        };
+        
+        var obj2 = {
+            name: "obj2"
+        };
+
+        function fun(a, b){
+            console.log("a = " + a);
+            console.log("b = " + b);
+            // alert(this.name);
+        }
+        
+        // fun.call(obj);      // obj
+
+        // obj.sayName.apply(obj2);    // obj2
+
+
+        fun.call(obj, 2, 3);
+        
+        fun.apply(obj, [2, 3]);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

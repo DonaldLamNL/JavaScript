@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var obj = new Object();
+
+        /*
+            屬性名：
+                - 對象的屬性名不要求遵守標識符的規範
+                    但是使用時還是盡量按照標識符的規範去做
+                - 如果要使用特殊的屬性名，不能使用.的方式來操作
+                    需要使用另一個方式：
+                        - 語法：
+                            對象["屬性名"] = 屬性值;
+                    - 讀取時也需要採用這種方式
+                - 使用[]的方式操作屬性會更加靈活
+                    因為在[]中可以直接傳遞一個變量，這樣變量值就可以指定讀取不同對象的屬性
+        
+        */
+
+        obj.var = "hello";
+        // obj.123 = "hello";
+        obj["123"] = 789;
+
+        obj["name"] = "Tom";
+        var n = "name";
+        console.log("n = name = " + obj[n]);    //Tom
+
+
+
+        /*
+            屬性值：
+                JS對象的屬性值可以是任意的數據類型，甚至是對象
+        */
+
+        var obj2 = new Object();
+        obj2.name = "Jack";
+        obj2.age = 21;
+        obj.test = obj2;
+        console.log("name = " + obj.test.name);
+
+        /*
+            in 運算符：
+                - 通過in運算符可以檢查一個對象中是否含有指定的屬性
+                    如果有則返回true，沒有則false
+                - 語法：
+                    "屬性名" in 對象;
+        */
+
+        console.log("test2" in obj);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

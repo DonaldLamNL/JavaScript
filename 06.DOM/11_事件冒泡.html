@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #box1{
+            height: 200px;
+            width: 200px;
+            background-color: yellowgreen;
+        }
+
+        #s1{
+            background-color: yellow;
+        }
+
+    </style>
+
+    <script>
+
+        window.onload = function(){
+
+            /*
+                事件冒泡(Bubble)
+                    - 所謂冒泡指的是事件的向上傳到，當後代元素上的事件被觸法時
+                        其祖先元素的相同事件也會被觸法
+                    - 在開發中，大部分冒泡都是有用的，如果不希望發生事件冒泡也樂意通過事件對象來取消冒泡
+            
+            */
+
+            // 為了s1綁定單擊響應函數
+            var s1 = document.getElementById("s1");
+            s1.onclick = function(){
+                alert("span");
+                /*
+                    取消冒泡
+                        - 可以將事件對象的 cancelBubble 設置為true，即可取消冒泡
+                */
+                event.cancelBubble = true;
+            };
+
+            // 為了box1綁定單擊響應函數
+            var s1 = document.getElementById("box1");
+            s1.onclick = function(){
+                alert("div");
+                event.cancelBubble = true;
+            };
+            
+            // 為了body綁定單擊響應函數
+            document.documentElement.onclick = function(){
+                alert("body");
+            };
+
+        };
+
+
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="box1">
+        I am box1.
+        <span id="s1">I am span.</span>
+    </div>
+
+</body>
+</html>

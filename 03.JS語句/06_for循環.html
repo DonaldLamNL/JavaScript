@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            for循環
+                - for循環的表達式：
+                    1. 初始化表達式
+                    2. 條件表達式
+                    3. 更新表達式
+
+                - 語法：
+                    for(初始化表達式; 條件表達式; 更新表達式){
+                        語句...
+                    }
+
+                - 執行流程：
+                    1. 執行初始化表達式，初始化變量 (初始化表達式只會執行一次)
+                    2. 執行條件表達式，判斷是否執行循環
+                        如果為true，則執行循環
+                        如果為false，則終止循環
+                    3. 執行更新表達式，更新表達式執行完畢則繼續重複
+
+                - 其他事項：
+                    for循環中的三個部分可以省略並寫在外部
+                    如果在for循環中不寫任何的表達式，此時循環則是一個死循環
+        */
+
+        for(var i = 1; i <= 100; i++){
+            if(i % 2 != 0){
+                console.log(i);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

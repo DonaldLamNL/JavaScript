@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            Date對象    
+                - 在JS中使用Date對象來表示時間
+                - 構造函數創造對象：
+                    var 變量 = new Date(參數);
+                    - 如果直接使用構造函數創建一個Date對象，則會封裝成為當前代碼執行的時間
+                - 如果要指定一個時間對象，需要在構造函數中傳遞一個表示時間的字符串作為參數
+                    日期格式：
+                        月份/日/年 時:分:秒
+        */
+
+        // 創建Date對象
+        var d = new Date();
+
+        // 創建指定的時間對象
+        var d2 = new Date("12/13/2021 11:10:30");
+
+        /*
+            Date對象的方法
+                1. getDate()
+                    - 獲取當前日期對象的日子
+                2. getDay()
+                    - 獲取當前日期對象的星期
+                    - 會返回0-6的值，0表示週日
+                3. getMonth()
+                    - 獲取當前日期對象的月份
+                    - 會返回0-11的值，0表示1月
+                4. getFullYear()
+                    - 獲取當前日期對象的年份
+
+                5. getTime()
+                    - 獲取當前日期對象的時間戳
+                    - 時間戳，指的是從格林威治標準時間的1970年1月1日，0時0分0秒，
+                        到當前日期所花費的毫秒數(1秒 = 1000毫秒)
+                    - 計算機底層在保存時間時使用的都是時間戳
+
+                    - 獲取當前的時間戳：Date.now();
+                    - 利用時間戳可以來測試代碼的執行性能
+        */
+
+        var date = d2.getDate();        // 13
+        var day = d2.getDay();          // 1
+        var month = d2.getMonth();      // 12
+        var year = d2.getFullYear();    // 2021
+        var time = d2.getTime();
+
+        // 獲取當前的時間戳
+        time = Date.now();
+        
+        for(var i = 0; i < 100; i++){
+            console.log(i);
+        }
+        
+        time = Date.now() - time;
+        console.log(time);
+        
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

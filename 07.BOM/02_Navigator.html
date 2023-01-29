@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /*
+            Navigator
+                - 代表當前瀏覽器的信息，通過該對象可以來識別不同的瀏覽器
+                - 由於歷史原因，Navigator中的大部分屬性都已經不能幫助我們識別瀏覽器了
+                - 一般我們只會使用 userAgent(用戶代理) 來判斷瀏覽器信息
+                    userAgent 是一個字符串，這個字符串中包含有描述瀏覽器中信息的內容
+                    不同瀏覽器會有不同的userAgent
+
+                - 如果通過 userAgent 不能判斷，還可以通過一些瀏覽器中特有的對象，來判斷瀏覽器信息
+                    比如： ActiveXObject
+                    if("ActiveXObject" in window)   來判斷是否IE瀏覽器
+        */
+
+        var ua = navigator.userAgent;
+
+        // if(/chrome/i.test(ua)){
+        //     alert("chorme");
+        // }else if(/safari/i.test(ua)){
+        //     alert("safari");
+        // }else if(/firefox/i.test(ua)){
+        //     alert("firefox");
+        // }else if(/msie/i.test(ua)){
+        //     alert("IE");
+        // }
+
+        // alert(!!window.ActiveXObject);       // 但仍然無法分別Edge IE11
+        // alert("ActiveXObject" in window);    // 成功分辨Edge
+        if("ActiveXObject" in window){
+            alert("IE");
+        }else{
+            alert("No");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            函數中傳遞引用數據的實參
+                當參數過多時，可以將參數封裝到一個對象中，然後通過對象傳遞數值
+
+                - 實參可以是一個對象，也可以是一個函數
+                    如果傳遞一個函數，則形參便會是該函數
+
+                - 實參也可以是一個函數的返回值
+                    如果傳遞一個函數返回值，則形參的值便是其返回值
+            
+            因此：
+                實參是 函數名，則傳遞的是該函數
+                如果實參是 函數名()，則傳遞該函數的返回值
+
+            
+        */
+
+        // 傳遞對象
+        var obj = {
+            name: "Amy",
+            age: 18,
+            address: "Hong Kong",
+        }
+        function sayHello(info){
+            console.log("My name is " + info.name + ". I am " + info.age + " years old and I live in " + info.address + ".");
+        }
+        sayHello(obj);
+
+
+        // 傳遞函數
+        function fun(a){
+            a(obj);
+        }
+        fun(sayHello);      // a == sayhello
+
+
+
+        // 傳遞函數返回值
+        function diameter(r){
+            return r * 2;
+        }
+
+        function circumference(d){
+            return d * 3.1415926;
+        }
+
+        var radius = 5;
+        console.log("circumference = " + circumference(diameter));
+
+
+        /*
+
+        
+        
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

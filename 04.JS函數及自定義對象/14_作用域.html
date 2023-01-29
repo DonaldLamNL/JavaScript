@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            作用域：
+                - 作用域指一個變量的作用範圍
+                - 在JS中，一共有兩種作用域：
+                    1. 全局作用域
+                        - 直接編寫在script標籤中的代碼，都在全局作用域中
+                        - 全局作用域在頁面打開時創建，在頁面關閉時銷毀
+                        - 在全局作用域中有一個全局對象window
+                            代表的是瀏覽器的窗口，由瀏覽器創建，可以直接在頁面中使用
+                        - 在全局作用域中：
+                            創建的變量都會作為window對象的屬性保存
+                            創建的函數都會作為window對象的方法保存
+                        - 全局作用域中的變量都是全局變量
+                            在頁面的任意部分都可以訪問得到
+
+                    2. 函數作用域
+                        - 調用函數時，創建函數作用域，函數執行完畢後，函數作用域銷毀
+                        - 每調用一次函數，就會創建一個新的函數作用域，他們是互相獨立的
+                        - 在函數作用域中，可以訪問到全局作用域的變量
+                          在全局作用域中，無法訪問函數作用域的變量
+                        - 當在函數作用域中操作一個變量時，它會先在自身的作用域中尋找
+                            如果有就直接使用
+                            如果沒有則在上一級作用域中尋找，直到找到全局作用域為止
+                                如果全局作用域也找不到，則報錯ReferenceError
+                        - 在函數中要訪問全局變量可以使用window對象
+
+                    3. 函數作用域的聲明提前
+                        - 在函數作用域中也有聲明提前的屬性
+                            使用var關鍵字聲明的變量會在函數中所有代碼執行前被聲明
+                        - 函數聲明也會在函數中所有代碼執行前聲明
+
+
+        */
+        
+        // 全局作用域演示
+        var a = 123;
+        console.log(window.a);
+        console.log(a);
+
+        function fun(){
+            console.log("Hello");
+        }
+        fun();
+        window.fun();
+        window.alert("Hello World");
+
+
+        // 函數作用域演示
+        var b = 10;
+
+        function fun2(){
+            var c = 20;
+            var b = "Hello World";
+            function fun3(){
+                console.log("b in fun3 = " + b);    // Hello World
+            }
+            fun3();
+            console.log("global variable b = " + window.b);        // 10
+            console.log("b in fun2 = " + b);        // Hello World
+        }
+
+        fun2();
+        console.log("b = " + b);            // 10
+        // console.log("c = " + c);         // 報錯
+
+
+
+        // 函數作用域的聲明提前演示
+        function fun4(){
+            console.log(a);     // undefined
+            var a = 35;
+            fun5();
+
+            function fun5(){
+                alert("Function 5");
+            }
+        }
+
+        fun4();
+
+
+        /*
+            - 函數中不使用var聲明的變量，都會成為全局變量
+            - 形參就相當於在函數作用域中聲明變量
+        */
+        // 其他演示
+        var d = 33;
+
+        function fun6(){
+            console.log("d = " + d);
+            d = 10;
+
+            // e沒有使用var關鍵字，則視為全局變量
+            e = 100;
+        }
+
+        fun6();
+        
+        console.log("d = " + d);
+        console.log("e = " + e);
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

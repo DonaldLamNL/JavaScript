@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #box2{
+            width: 1000px;
+            height: 1000px;
+            background-color: #bfa;
+            position: relative;
+        }
+
+
+    </style>
+    <script>
+
+        // 使div可以根據不同的方向鍵向不同的方向移動
+        window.onload = function(){
+
+            // 創建變量，表示移動速度
+            var speed = 10;
+            // 創建變量，表示方向
+            // 修改dir來影響元素的移動方向
+            var dir = 0;
+
+            // 開啟一個定時器，來控制div的移動
+            setInterval(function(){
+                switch(dir){
+                    // Leftward
+                    case 37:
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        console.log(event.keyCode);
+                        break;
+                    // Upward
+                    case 38:
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    // Rightward
+                    case 39:
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    // Downward
+                    case 40:
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+                }
+            }, 30);
+
+
+
+
+            document.onkeydown = function(event){
+                var box1 = document.getElementById("box1");
+
+                // 用戶按了ctrl以後，速度加快
+                if(event.shiftKey){
+                    speed = 50;
+                }else{
+                    speed = 10;
+                }
+                // 使dir等於按鍵的值
+                dir = event.keyCode;
+
+                // 當按鍵鬆開時，div不再移動
+                document.onkeyup = function(){
+                    // 設置方向為0
+                    dir = 0;
+                };
+
+                return false;
+
+            };
+
+        };
+
+
+    </script>
+</head>
+<body>
+    
+    <div id="box2">
+        <div id="box1"></div>
+    </div>
+
+</body>
+</html>

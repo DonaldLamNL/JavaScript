@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 設置外部div */
+        #outer {
+            /* 設置寬高 */
+            width: 520px;
+            height: 332px;
+            /* 設置居中 */
+            margin: 50px auto;
+            /* 設置背景顏色 */
+            background-color: #bfa;
+            /* 設置上下padding */
+            padding: 10px 0;
+            /* 開啟相對定位 */
+            position: relative;
+            /* 裁減溢出圖片 */
+            /* overflow: hidden; */
+        }
+
+        /* 設置imgList */
+        #imgList {
+            /* 去除項目符號 */
+            list-style: none;
+            /* 設置ul寬度 */
+            /* width: 2600px; */
+            /* 開啟絕對定位 */
+            position: absolute;
+            /* 設置偏移量 */
+            /* 
+                每向左移動520px，就會顯示到下一張圖片
+            */
+            left: 0;
+        }
+
+        /* 設置圖片中的li */
+        #imgList li {
+            /* 設置浮動 */
+            float: left;
+            /* 設置左右外邊局 */
+            margin: 0 10px;
+        }
+
+        /* 設置導航按鈕 */
+        #navDiv {
+            /* 開啟絕對定位 */
+            position: absolute;
+            /* 設置位置 */
+            bottom: 20px;
+            /* 
+                設置居中 
+                    計算left值：
+                        outer 520
+                        div 125
+            */
+            /* left: 50%;
+            transform: translateX(-50px); */
+            left: 197.5px;
+
+        }
+
+        #navDiv a {
+            /* 設置超連結寬高 */
+            width: 15px;
+            height: 15px;
+            /* 設置超連結浮動 */
+            float: left;
+            /* 設置左右外邊距 */
+            margin: 0 5px;
+            /* 設置超連結背景顏色 */
+            background-color: red;
+            /* 設置透明 */
+            opacity: 0.5;
+        }
+
+        /* 設置navDiv鼠標移入的效果 */
+        #navDiv a:hover {
+            background-color: black;
+        }
+    </style>
+
+    <!-- 引入工具，添加動畫效果 -->
+    <script src="./Resources/tools.js"></script>
+
+    <script>
+
+        window.onload = function () {
+
+            // 設置彈性 imgList 寬度
+            {
+                // 獲取imgList
+                var imgList = document.getElementById("imgList");
+                // 獲取頁面中所有圖片
+                var imgArr = document.getElementsByTagName("img");
+                // 設置imgList寬度
+                imgList.style.width = 520 * imgArr.length + "px";
+            }
+
+            // 設置導航按鈕居中
+            {
+                // 獲取navDiv
+                var navDiv = document.getElementById("navDiv");
+                // 獲取outer
+                var outer = document.getElementById("outer");
+                // 設置navDiv的left值
+                navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+            }
+
+            // 設置navDiv樣式
+            {
+                // 獲取所有的a
+                var allA = document.getElementsByTagName("a");
+                // 默認顯示圖片索引
+                var index = 0;
+                // 設置默認選中的效果
+                allA[index].style.backgroundColor = "black";
+            }
+
+            /*
+                功能一：點擊超連結切換到指定圖片
+                    點擊第一個超連結，顯示第一個圖片...
+            */
+            // 為所有超連結都綁定單擊響應函數
+            for (var i = 0; i < allA.length; i++) {
+
+                // 為每一個超連結添加一個num屬性來辨認每一個超連結
+                allA[i].num = i;
+
+                allA[i].onclick = function () {
+
+                    // 關閉自動切換定時器
+                    clearInterval(timer);
+
+                    // 獲取點擊超連結的索引，並將其設置為index
+                    index = this.num;
+
+                    // 切換圖片
+                    // imgList.style.left = -520 * index + "px";
+
+                    // 修改正在選中的a
+                    setA();
+
+                    // 使用 tool 裏面的 move 函數來切換圖片
+                    move(imgList, -520 * index, 20, "left", function () {
+                        autoChange();
+                    });
+
+                };
+            }
+
+            // 開啟自動切換圖片
+            autoChange();
+
+            // 創建一個方法來設置選中的a
+            function setA() {
+
+                // 判斷索引是否是最後一張
+                if(index >= imgArr.length - 1){
+                    // 則將index設置為0
+                    index = 0;
+
+                    // 此時顯示最後一張圖片，而最後一張圖片和第一張是一模一樣
+                    // 通過CSS將最後一張一下子切換成第一張
+                    imgList.style.left = 0;
+                }
+
+                // 遍歷所有a，並將其背景顏色設置為red
+                for (var i = 0; i < allA.length; i++) {
+                    /*
+                        如果值設置為red，將修改其內聯樣式，但這樣hover效果就會消失，
+                            因為內聯樣式優先級比較高
+                        因此可以直接設置為空串，意思是取消內聯樣式，
+                            這樣超連結樣式便會根據原本樣式進行樣式重置，也能變回紅色
+                    */
+                    allA[i].style.backgroundColor = "";
+                }
+                // 將選中的a設置為黑色
+                allA[index].style.backgroundColor = "black";
+
+            };
+
+            
+            // 定義定時器的標識
+            var timer;
+            // 設置自動輪播
+            function autoChange() {
+
+                timer = setInterval(function () {
+
+                    // 使索引自增
+                    index++;
+
+                    index %= imgArr.length;
+
+                    // 執行動畫，切換圖片
+                    move(imgList, -520 * index, 20, "left", function () { 
+                        // 修改導航點
+                        setA();
+                    });
+                    
+                }, 1000);
+
+            };
+
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- 創建外部div，作為一個大的容器 -->
+    <div id="outer">
+        <!-- 創建一個ul，用於放置圖片 -->
+        <ul id="imgList">
+            <li><img src="./Resources/09/A00.jpg"></li>
+            <li><img src="./Resources/09/A01.jpg"></li>
+            <li><img src="./Resources/09/A02.jpg"></li>
+            <li><img src="./Resources/09/A03.png"></li>
+            <li><img src="./Resources/09/A04.jpg"></li>
+            <li><img src="./Resources/09/A00.jpg"></li>
+
+        </ul>
+
+        <!-- 創建導航按鈕 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

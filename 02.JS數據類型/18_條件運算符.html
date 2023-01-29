@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            條件運算符，也稱三元運算符
+            語法：
+                條件表達式 ? 語句1 : 語句2;
+            - 執行流程：
+                執行時，首先對條件表達式進行求值
+                如果該值為true，則執行語句1並返回執行結果
+                如果該值為false，則執行語句2並返回執行結果
+
+            - 如果條件的表達式的求值結果是一個非布爾值
+                則將其轉換為布爾值再執行判斷
+        
+        
+        */ 
+
+        // true ? alert("語句1") : alert("語句2");
+
+        var a = 30;
+        var b = 20;
+        // a > b ? alert("a大") : alert("b大");
+
+        //獲取a和b中的最大值
+        var c = 50;
+        // var max = a > b ? a : b;
+        // max = max > c ? max : c;
+        max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+        // 但這種寫法不推薦使用，因為不方便使用
+        
+        alert("max = " + max);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

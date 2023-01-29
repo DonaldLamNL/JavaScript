@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            數組(Array)
+                - 數組也是一個對象
+                - 它和普通對象功能類似，也是用來存儲一些值
+                    不同的是普通對象是使用字符串作為屬性名的
+                    而數組是使用數字來作為索引操作元素
+
+                - 索引：
+                    從0開始的整數就是索引
+
+                - 數組的存儲性能比普通對象要好，在開發中經常使用數組來存儲一些數據
+        */
+
+        // 創建數組對象
+        var arr = new Array();
+
+        // 使用 typeof 來檢查一個數組時，會返回object
+        console.log(typeof arr);
+
+        /*
+            向數組添加元素
+                - 語法：
+                    數組[索引] = 值;
+
+            讀取數組中的元素
+                - 語法：
+                    數組[索引]
+
+                如果讀取不存在的索引，他不會報錯而是返回undefined
+        */
+
+        arr[0] = 10;
+        arr[1] = 33;
+        arr[2] = 23;
+        // arr[10] = 31;
+        console.log(arr[10]);
+        
+        /*
+            作用一：獲取數組的長度
+                - 可以使用length屬性來獲取數組長度(元素的個數)
+                - 語法：
+                    數組.length
+            
+                - 對於連續的數組，使用length可以獲取到數組的長度
+                - 對於非連續的數組，使用length會獲取數組最大的索引+1
+                    盡量不要創建非連續的數組
+        */
+       
+       console.log(arr);
+       console.log(arr.length);
+       
+        /*
+            作用二：修改length
+                - 如果修改的length大於原長度，多出來的部分則會空出來
+                - 如果修改的length小於原長度，則多出的元素會被刪除
+        */
+      
+        arr.length = 2;
+        console.log(arr);
+        console.log(arr.length);
+        
+        /*
+            作用三：向數組的最後一個位置添加元素
+                - 語法：
+                    數組[數組.length] = 值;
+        */
+        
+        arr[arr.length] = 50;
+        arr[arr.length] = 60;
+        arr[arr.length] = 70;
+        console.log(arr);
+       
+       
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

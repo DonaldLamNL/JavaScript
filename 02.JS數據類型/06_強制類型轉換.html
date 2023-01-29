@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            強制類型轉換
+                - 指將一個數據類型強制轉換為其他數據類型
+                - 類型轉換主要是指將其他的數據類型轉換為：
+                    String Number Boolean
+        */ 
+
+        /*
+            將其他數據類型轉換成String
+                方式一：
+                    - 調用被轉換數據類型的 toString() 方法
+                    - 該方法不會影響到原變量，它會將轉換的結果返回
+                    - 注意：null和undefined，這兩個值沒有toString()方法
+                        如果調用他們的方法，會報錯
+
+                方式二：
+                    - 調用String()函數，並將被轉換的數據作為參數傳遞給函數
+                    - 使用String()函數做強制類型轉換時
+                        對於Number和Boolean實際上就是調用的toString()方法
+                        但是對於null和undefined，就不會調用toString()方法
+                            他會將null直接轉換為"null"
+                            他會將undefined直接轉換為"undefined"
+        */
+
+        var a = 123;
+        
+        //調用 a 的 toString() 方法
+        var b = a.toString();
+        console.log(typeof b);
+        console.log(b);
+        
+        a = true;
+        a = a.toString();
+        
+        a = null;
+        // a = a.toString();    報錯
+        
+        a = undefined;
+        // a = a.toString();    報錯
+        
+        a = 123;
+
+        //調用String()函數
+        a = String(a);
+        
+        a = null;
+        a = String(a);        //不報錯
+        
+        a = undefined;
+        a = String(a);        //不報錯
+        
+        
+        console.log(typeof a);
+        console.log(a);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

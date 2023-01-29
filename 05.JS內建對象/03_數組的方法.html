@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            push()
+                - 該方法可以向數組末尾添加一個或多個元素，並返回數組新的長度
+                - 可以將要添加的元素作為方法的參數傳遞，這些元素便會添加到數組的末尾
+                - 該方法會將數組新的長度作為返回值返回
+        */
+
+        var arr = ["Tom", "John", "Amy"];
+        var result = arr.push("Billy", "Kelly");
+        console.log("result = " + result + " " + arr);
+        
+
+        /*
+            unshift()
+                - 向數組的開頭添加一個或多個元素，並返回數組新的長度
+                - 向前面插入元素以後，其他元素的索引會依次調整
+        */
+ 
+        var result = arr.unshift("Donald", "Frank");
+        console.log("result = " + result + " " + arr);
+        
+
+        /*
+            pop()
+                - 該方法可以刪除數組最後一個元素，並將刪除的元素作為返回值返回
+        */
+       
+        console.log("pop之前 = " + arr);
+        result = arr.pop();
+        console.log("pop之後 = " + arr + ". result = " + result);
+        
+        
+        /*
+        shift()
+        - 該方法可以刪除數組中第一個元素，並將刪除的元素作為返回值返回
+        */
+        console.log("shift之前 = " + arr);
+        result = arr.shift();
+        console.log("shift之後 = " + arr + ". result = " + result);
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

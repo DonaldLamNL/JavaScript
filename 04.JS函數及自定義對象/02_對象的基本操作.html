@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            對象：
+                - 使用new關鍵字調用的函數，是構造函數constructor
+                    構造函數是專門創建對象的函數
+                - 使用typeof檢查一個對象時會返回object
+        */
+
+        // 創建對象
+        var obj = new Object();
+
+        /*
+            向對象中添加屬性，在對象中保存的值成為屬性：
+            - 語法：
+                對象.屬性名 = 屬性值;
+        */
+
+        // 向obj中添加一個name gender age屬性
+        obj.name = "John";
+        obj.gender = "Male";
+        obj.age = 18;
+
+        /*
+            讀取對象的屬性：
+            - 語法：
+                對象.屬性名
+
+            如果讀取對象中沒有的屬性，不會報錯，而是會返回undefined
+        */
+
+        console.log(obj.name);
+
+        /*
+            刪除對象的的屬性：
+            - 語法：
+                delete 對象.屬性名
+        */
+       
+        delete obj.name;
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

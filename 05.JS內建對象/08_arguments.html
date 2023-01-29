@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            在調用函數式，瀏覽器每次都會傳遞進兩個隱含的參數：
+                1. 函數的上下文對象 this
+                2. 封裝實參的對象 arguments
+                    - arguments是一個類數組對象，它也可以通過索引來操作數據，也可以獲取長度
+                    - 在調用函數是，我們所傳遞的實參都會封裝到arguments中
+                    - arguments.length可以用來獲取實參的長度(數量)
+                    - 即使不定義形參，也可以通過arguments來使用實參，只不過比較麻煩
+                        arguments[0]表示第一個實參
+                        arguments[1]表示第二個實參
+                    - arguments.callee對應一個函數對象，就是當前正在執行的函數對象
+        
+        */
+
+        function fun(){
+            // 檢查是不是數組
+            // console.log(arguments instanceof Array);    // false
+            // console.log(Array.isArray(arguments));      // false
+            console.log(arguments.length);
+            console.log(arguments[0]);
+            console.log(arguments.callee == fun);          // true
+        }
+
+        fun("Hello", true, 134);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

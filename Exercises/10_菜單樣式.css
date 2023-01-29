@@ -1,0 +1,48 @@
+#my_menu {
+    width: 175px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#my_menu div{
+    overflow: hidden;
+}
+
+.collapsed{
+    height: 25px;
+    overflow: hidden;
+}
+
+#my_menu div span {
+    height: 25px;
+    line-height: 25px;
+    background-color: rgb(58, 58, 58);
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(58, 58, 58));
+    color: white;
+}
+
+#my_menu div a{
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(160, 160, 160);
+    color: blue;
+}
+
+#my_menu div a:last-child{
+    border-bottom: none;
+}
+
+#my_menu div a:hover{
+    background-color: darkgreen;
+    color: white;
+}
+
+
+#my_menu div span, #my_menu div a {
+    display: block;
+    padding-left: 15px;
+    font-size: 13px;
+}

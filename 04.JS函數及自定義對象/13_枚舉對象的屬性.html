@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            開發中可能不知道一些對象裏面的屬性和方法，因此需要枚舉對象的屬性，即列出對象的所有屬性名和方法名
+            枚舉對象的屬性：
+                - 使用 for ... in 語句
+                - 語法：
+                    for(var 變量 in 對象){
+
+                    }
+                for ... in語句 對象中有幾個屬性，循環體就會執行幾次
+                每次執行時，會將對象中的一個屬性的名字賦值給變量
+        
+        */
+
+        var obj = {
+            name: "Tom",
+            age: 18,
+            gender: "Male",
+            address: "Hong Kong"
+        };
+
+        for(var n in obj){
+            console.log("屬性名：" + n);
+            console.log("屬性值：" + obj[n]);
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

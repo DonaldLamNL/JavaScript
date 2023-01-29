@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            創建一個構造函數，專門用來創建Person對象的
+                構造函數就是一個普通的函數，和普通函數沒有區別
+                不同的是，構造函數習慣上首字母大寫
+
+            構造函數和普通函數的區別在於調用方式的不同
+                普通函數是直接調用
+                構造函數需要使用new關鍵字來調用
+
+            構造函數執行流程：
+                1. 立刻創建新的對象
+                2. 將新建的對象設置為函數中的this，在構造函數中可以使用this來引用新對象
+                3. 逐行執行函數中的代碼
+                4. 將新建的對象作為返回值返回
+
+            使用同一個函數創造的對象，我們成為一類對象，也將構造函數成為一個類
+                我們將通過構造函數創建的對象，稱為是該類的實例
+                - 使用 instanceof 可以檢查一個對象是否是一個類的實例
+                    語法：
+                        對象 instanceof 構造函數
+                        如果是則返回true，否則返回false
+                - 所有對象都是Object的後代，所以任何對象和Object做instanceof的時候都返回true
+
+            this情況：
+                1. 當以函數的形式調用時：this是window
+                2. 當以方法的形式調用時：誰調用方法this就是誰
+                3. 當以構造函數調的形式調用時：this就是先創建的那個對象
+        */
+
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var per1 = new Person("Tom", 18, "M");
+        var per2 = new Person("John", 22, "M");
+        var per3 = new Person("Amy", 17, "F");
+        
+        
+        function Dog(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        var dog1 = new Dog("旺財", 3);
+
+        console.log(per1);
+        console.log(dog1);
+
+        console.log(per1 instanceof Person);
+        console.log(dog1 instanceof Object);
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

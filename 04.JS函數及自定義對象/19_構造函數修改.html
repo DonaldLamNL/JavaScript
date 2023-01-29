@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            創建一個Person的構造函數
+                - 在Person中，為每一個對象都添加了一個sayName方法
+                    目前方法是在構造函數內部創建的，意思是構造函數每執行一次就會創建一個新的sayName方法，
+                        也就是所有實例的sayName都是獨立的
+                    這就導致了構造函數執行一次就會創建一個新的方法，執行一萬此就會創建一萬個新的方法，
+                        而這一萬個方法都是一模一樣的，這是完全沒必要，完全可以使所欲對象共用同一個方法
+        
+        */
+
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = fun;
+        }
+
+        // 將sayName方法在全局作用域中定義
+        /*
+            將函數定義在全局作用域中，污染了全局作用域的命名空間
+            而且定義在全局作用域中也很不安全
+        
+        */
+
+        // function fun(){
+        //         alert("I am " + this.name);
+        //     };
+
+        // 向原型中添加sayName方法
+        Person.prototype.sayName = function(){
+            alert("I am " + this.name);
+        };
+
+        var per1 = new Person("Tom", 18, "M");
+        var per2 = new Person("John", 22, "M");
+
+        per1.sayName();
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

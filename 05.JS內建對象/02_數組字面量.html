@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            使用字面量來創建數組
+                - 語法：
+                    var 數組 = [];
+
+                - 使用字面量創建數組時，可以在創建時就指定數組中的元素 (常用)
+                - 其實使用構造函數創建數組時，也可以同時添加元素，
+                    將要添加的元素寫在作為構造函數的參數傳遞，元素之間使用,隔開
+                - 字面量與構造函數方式創造數組的不同：
+                    編寫元素的地方只寫進一個整數的話，
+                        字面量方式是創造一個數組只有該整數的元素
+                        構造函數方式是創造一個長度為該整數的數組
+        */
+
+        var arr = [1, 2, 3, 4, 5, 10];
+        var arr2 = new Array(2, 4, 6, 8, 100);
+        
+        console.log(arr);
+        console.log(arr2);
+        
+
+        // 字面量與構造函數方式創造數組的不同：
+        // 創建一個數組只有10的元素
+        arr = [10];
+        console.log(arr);
+        // 創建一個長度為10的數組
+        arr2 = new Array(10);
+        console.log(arr2);
+
+
+        /*
+            數組中的元素
+                1. 數組中的元素可以是任意的數據類型
+                2. 因此也可以是對象
+                3. 也可以是個函數
+                4. 數組中也可以放數組，這種數據叫二維數組
+        */
+
+        // 1
+        arr = ["hello", 1, true, null, undefined]
+        
+        // 2
+        var obj = {
+            name: "Tom",
+            age: 18,
+            gender: "M"
+        };
+        arr[arr.length] = obj;
+        arr2 = [
+            {name: "Tom"},
+            {name: "Amy"}
+        ];
+        
+        console.log(arr);
+        console.log(arr2);
+        console.log(arr[5].name);
+        
+        // 3
+        var arr3 = [function(){alert(1);}, function(){alert(2);}]
+        console.log(arr3);
+        arr3[0]();
+        
+        // 4
+        var arr4 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        console.log(arr4);
+        console.log(arr4[1][2]);        // 6
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+
+            // 獲取body標籤
+            // var body = document.getElementsByTagName("body")[0];
+            /*
+                在document中有一個屬性就叫body，他保存的是body的引用
+            */
+            var body = document.body;
+            /*
+                document.documentElement保存的是html根標籤
+            */
+            var de = document.documentElement;
+            /*
+                document.all代表頁面中的所有元素
+                document.getElementsByTagName("*")
+                    兩者作用一樣
+            */
+            var all = document.all;
+
+            /*
+                根據元素的class屬性值來查詢一組元素節點對象
+            
+            */
+            var box1 = document.getElementsByClassName("box1");
+
+            // 獲取頁面中的所有div
+            var divs = document.getElementsByTagName("div");
+            
+            // 獲取頁面中的所有box1的div
+            // .box1 div
+            /*
+                document.querySelector();
+                    - 需要一個選擇器的字符串作為參數，可以根據一個CSS選擇器來查詢一個元素節點對象
+                    - 使用該方法總會範圍唯一的元素，如果滿足條件的元素有多個，那麼只會返回第一個
+                document.querySelectorAll();
+                    - 該方法和document.querySelector()用法類似
+                        不同的是他會將合乎條件的元素封裝到一個數組中返回
+
+
+            
+            */
+            var div = document.querySelector(".box1 div");
+            
+            var box1 = document.querySelector(".box1");
+            
+            var boxs = document.querySelectorAll(".box1");
+
+
+            console.log(boxs.length);
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="box1">
+        <div>Hello World 1</div>
+    </div>
+
+    <div class="box1"></div>
+    <div id="box2"></div>
+
+</body>
+</html>

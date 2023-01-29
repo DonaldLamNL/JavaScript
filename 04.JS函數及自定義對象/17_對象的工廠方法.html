@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            普通方法創建多個對象
+                出現大量重複性代碼，不利於實際應用
+        */
+        var obj = {
+            name: "Tom",
+            age: 18,
+            gender: "Male",
+            sayName: function(){
+                alert(this.name);
+            }
+        };
+
+
+
+        /*
+            使用工廠方法創建對象
+                通過該方法可以大批量創建對象
+
+            使用工廠方法創建的對象，使用的結構函數都是Object
+                所以創建的對象都是Object類型
+                導致無法區分出多種不同類型的對象
+        */
+
+        // 創建人的對象
+        function createPerson(name, age, gender){
+            // 創建新對象   與全局不同，這是函數裏的
+            var obj = new Object();
+
+            // 向對象中添加屬性
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.sayName = function(){
+                alert(this.name);
+            }
+
+            // 創建對象的返回
+            return obj;
+        }
+
+        var obj2 = createPerson("Tom", 18, "M");
+        var obj3 = createPerson("John", 22, "M");
+        var obj4 = createPerson("Amy", 17, "F");
+
+        console.log(obj2);
+        obj4.sayName();
+
+        // 創建狗的對象
+        function createDog(name, age){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.sayHello = function(){
+                alert("Woof");
+            };
+            return obj;
+        }
+
+        var dog = createDog("旺財", 3);
+
+        console.log(dog);
+        console.log(obj4);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

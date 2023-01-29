@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            Math
+                - Math和其他對象不同，它不是一個構造函數
+                    它屬於一個工具類，不用創建對象，它裏面封裝了數學運算相關的屬性和方法
+
+                1. abs() 絕對值
+                    - 可以用來計算一個數的絕對值
+                2. ceil() 向上取整
+                    - 可以對一個數進行向上取整
+                3. floor() 向下取整
+                    - 可以對一個數進行向下取整
+                4. round() 四捨五入取整
+                    - 可以對一個數進行四捨五入取整
+                5. random() 隨機數
+                    - 可以用來生成0-1之間的隨機數
+                    - 如果要生成0-x之間的隨機數：
+                        Math.round(Math.random(1.45) * x)
+                    - 如果要生成 x - y 之間的隨機數：
+                        Math.round(Math.random(1.45) * (y - x)) + x
+                6. max() 可以獲取多個數的最大值
+                7. min() 可以獲取多個數的最小值
+                8. pow(x, y) x^y
+                9. sqrt() 開方運算
+        */
+
+        console.log(Math.abs(-132456));
+        console.log(Math.ceil(1.0004));
+        console.log(Math.floor(1.9991));
+        console.log(Math.round(1.45));
+        console.log(Math.random());
+        console.log(Math.max(12, 44, 64, 13, 56, 95));
+        
+        // 生成一個0-10的隨機數：
+        console.log(Math.round(Math.random() * (99 - 40)) + 40);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

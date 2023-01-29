@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            字符串和正則表達式相關的方法：
+                1. split()
+                    - 可以將一個字符串拆分成一個數組
+                    - 方法中可以傳遞一個正則表達式作為參數，這樣方法將會根據正則表達式去拆分字符串
+                    - 這個方法即使不指定全局匹配g，也會全都插分
+
+                2. search()
+                    - 可以搜索字符串中是否含有指定內容
+                    - 如果搜索到指定內容，則返回第一次出現的所有，如果沒有搜索到則返回-1
+                    - 它可以接收一個正則表達式作為參數，然後會根據正則表達式去檢索字符串
+                    - search()只會查找第一個，即使設置全局匹配也沒用
+
+                3. match()
+                    - 可以根據正則表達式，從一個字符串中符合條件的內容提取出來
+                    - 默認情況下，match()只會找到第一個符合要求的內容，找到以後就停止檢索
+                        我們可以設置正則表達式為全局匹配模式，這樣就會匹配到所有的內容
+                        可以為一個正則表達式設置多個匹配模式，且順序無所謂
+                    - match()會將匹配到的內容封裝到一個數組中返回，即使只查詢到一個結果
+
+                4. replace()
+                    - 可以將字符串中的指定內容替換為新的內容
+                    - 參數：
+                        第一個：被替換的內容，可以接收一個正則表達式作為參數
+                        第二個：新的內容
+                    - 默認只會替換第一個
+                    - 如果要刪除指定內容，第二個參數可以傳遞一個空串 ""
+                    
+
+        
+        
+        */ 
+
+        var str = "1a2b3c4d5e6f7";
+        console.log(str.split(/[a-z]/i));
+        
+        str = "Hello World aec ";
+        console.log(str.search(/a[bde]c/g));
+        
+        str = "1a2q3G4s5T6r7";
+        console.log(str.match(/[a-z]/ig));
+        console.log(str.match(/[a-z]/ig)[4]);
+        
+        str = "1a2q3G4s5T6r7";
+        console.log(str.replace(/[a-z]/ig, " @_@ "));
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

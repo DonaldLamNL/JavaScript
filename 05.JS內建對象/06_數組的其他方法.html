@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            concat()
+                - 可以連接兩個或多個數組，並將新的數組返回
+                - 該方法不會對原數組產生影響
+        */
+
+        var arr = ["Amy", "Billy", "Cally"];
+        var arr2 = ["Donald", "Frank", "John"];
+        var arr3 = ["Alex", "Sally", "Roy"];
+
+        var result = arr.concat(arr2, arr3, "Michael", "Kelly");
+
+        console.log(result);
+        
+        
+        /*
+            join()
+                - 該方法可以將數組轉換為一個字符串
+                - 該方法不會對原數組產生影響，而是將轉換後的字符串作為結果返回
+                - 在join()中可以指定字符串作為參數，這個字符串會成為數組中元素的連接符
+                    如果不指定連接符，則默認使用,作為連接符
+        */
+       
+       result = arr.join(" @-@ ");
+       
+       console.log(typeof arr);
+       console.log(typeof result + ", result = " + result);
+
+
+        /*
+            reverse()
+                - 該方法用來反轉數組(前面的去後面，後面的去前面)
+                - 該方法會直接修改原數組
+        */   
+
+        arr.reverse();
+        console.log(arr);
+
+
+        /*
+            sort()
+                - 可以用來對數組中的元素進行排序
+                - 該方法會直接修改原數組，默認會按照Unicode編碼進行排序
+                - 即使對於純數字的數組，使用sort()排序時，也會按照Unicode來排序
+                    所以對數字進行排序時，可能會得到錯誤的結果
+
+                - 我們可以自己指定排序的規則：
+                    我們可以在sort()中添加一個回調函數，來指定排序規則
+                        回調函數中需要定義兩個形參，
+                        瀏覽器將會分別使用數組中的元素作為實參去調用回調函數
+                        使用哪個元素調用不確定，但肯定的是在數組中a一定在b前面
+                    - 瀏覽器會根據回調函數的返回值來決定元素的順序，
+                        如果返回一個大於0的值，則元素會交換位置
+                        如果返回一個小於0的值，則元素位置不變
+                        如果返回一個0，則認為兩個元素相等，也不交換位置
+                    - 返回a - b：升序，返回b - a：降序
+
+        
+        */
+
+        arr.sort();
+        console.log(arr);
+        
+        var arr4 = [3, 2, 6, 11, 8];
+        arr4.sort(function(a, b){
+            return a - b;
+        });
+        console.log(arr4);
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

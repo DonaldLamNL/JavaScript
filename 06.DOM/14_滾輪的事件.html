@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            overflow: scroll;
+        }
+
+    </style>
+
+    <script>
+
+        window.onload = function(){
+            /*
+                當鼠標滾輪向下滾動時，box1變長
+                當鼠標滾輪向上滾動時，box1變短
+
+            */
+            // 獲取box1
+            var box1 = document.getElementById("box1");
+            // 為box1綁定鼠標滾輪滾動事件
+            /*
+                onwheel 鼠標滾輪滾動事件，會在滾輪滾動時觸法
+            */
+            box1.onwheel = function(event){
+                // 判斷鼠標滾輪滾動的方向
+                /*
+                    event.deltaY 可以用來獲取鼠標滾輪的滾動方向
+                    deltaY 這個值不看大小，只看正負
+
+                    deltaX 獲取鼠標滾輪滾動的水平方向
+                    deltaY 獲取鼠標滾輪滾動的垂直方向        
+                */
+                if(event.deltaY > 0){
+                    // 向上滾，box1變短
+                    box1.style.height = box1.clientHeight - 10 + "px";
+                }else{
+                    // 向下滾，box1變長 
+                    box1.style.height = box1.clientHeight + 10 + "px";
+                }
+
+                /*
+                    當滾輪滾動時，如果瀏覽器有滾動條，滾動條會隨之滾動，
+                    這個瀏覽器的默認希望，如果不希望發生則可以取消這個默認行為
+                        - 加上 return false 可以取消這個行為
+                */
+                return false;
+            };
+        };
+
+
+    </script>
+
+
+</head>
+<body style="height: 2000px;">
+    
+    <div id="box1"></div>
+
+</body>
+</html>

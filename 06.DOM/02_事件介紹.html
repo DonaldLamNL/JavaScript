@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--  
+        事件
+            - 就是用戶和瀏覽器之間的交互行為
+            - JS與HTML之間的交互是通過事件實現的
+            - 對於Web應用來說，有以下的代表性事件：
+                點擊某個元素、將鼠標移動至某個元素上方、按下鍵盤上某個按鍵
+    
+        
+            
+    -->
+
+    <!-- 
+        處理事件 
+            我們可以在事件對應的屬性中設置一些JS代碼，這樣當事件被觸法時，這些代碼就會執行
+                比如：
+                    1. onclick 單點
+                    2. ondblclick 雙點
+                    3. onmousemove 鼠標移入
+            這種寫法稱為結構和行為耦合，不方便維護，不推薦使用
+    -->
+    <!-- <button id="btn" onmousemove="alert('Fuck you!');">I am a button</button> -->
+
+    <!--  
+        可以為按鈕的對於對象綁定處理函數的形式來響應事件
+                這樣當事件被觸法時，其對於的函數將會被調用
+    -->
+    <button id="btn">I am a button</button>
+
+    <script>
+
+        // 獲取按鈕對象
+        var btn = document.getElementById("btn");
+
+        // 綁定單擊事件～函數方式
+        // 想這種為單擊事件綁定的函數，稱為單擊響應函數
+        btn.ondblclick = function(){
+            alert("Fuck You!");
+        };
+
+    </script>
+
+</body>
+</html>

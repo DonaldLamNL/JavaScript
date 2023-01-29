@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+            /*
+                ****innerHTML
+                    - 使用innerHTML也能完成DOM的增刪改的相關操作
+                        city.innerHTML += "<li>廣州</li>";
+                    - 一般我們會兩種方式結合使用
+
+
+                appendChild()
+                    - 向一個父節點添加一個子節點(把新的節點添加到指定節點)
+                    - 語法：
+                        父節點.appendChild(子節點);
+
+                removeChild()
+                    - 刪除子節點
+                    - 語法：
+                        父節點.removeChild(子節點);
+                     ** 子節點.parentNode.removeChild(子節點);
+
+                replaceChild()
+                    - 替換子節點
+                    - 語法：
+                        父節點.replaceChild(新節點, 舊節點);
+
+                insertBefore()
+                    - 在指定的子節點前插入新的子節點
+                    - 語法：
+                        父節點.insertBefore(新節點, 舊節點);
+
+                createAttribute()
+                    - 創建屬性節點
+
+                createElement()
+                    - 創建元素節點對象
+                        需要一個標籤名作為參數，將會該標籤名創建元素節點對象
+                        並將創建好的對象作為返回值返回
+
+                createTextNode()
+                    - 創建文本節點
+                        需要一個文本內容作為參數，將會根據內容創建文本節點
+                        並將創建好的對象作為返回值返回
+
+                getAttribute()
+                    - 返回指定的屬性值
+                setAttribute()
+                    - 把指定屬性設置或修改為指定的值
+            
+            */
+
+            // 創建廣州節點，添加到#city下
+            myClick("btn01", function(){
+                // 創建廣州 <li>廣州</li>
+                // 創建li元素節點
+                var gzLi = document.createElement("li");
+                // 創建廣州文本節點
+                var gzText = document.createTextNode("廣州");
+
+                // 將gzText設置為gzLi的子節點
+                gzLi.appendChild(gzText);
+
+                // 獲取id為city的節點
+                var city = document.getElementById("city");
+                city.appendChild(gzLi);
+            });
+
+
+            // 將廣州節點插入到#bj前面
+            myClick("btn02", function(){
+                // 創建一個廣州
+                var gzLi = document.createElement("li");
+                var gzText = document.createTextNode("廣州");
+                gzLi.appendChild(gzText);
+
+                // 獲取id為北京和city的節點
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+
+                city.insertBefore(gzLi, bj);
+            });
+
+
+            // 使用廣州節點代替#bj節點
+            myClick("btn03", function(){
+                // 創建一個廣州
+                var gzLi = document.createElement("li");
+                var gzText = document.createTextNode("廣州");
+                gzLi.appendChild(gzText);
+
+                // 獲取id為北京和city的節點
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+
+                city.replaceChild(gzLi, bj);
+            });
+
+
+            // 刪除#bj節點
+            myClick("btn04", function(){
+                // 獲取id為北京和city的節點
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+
+                // city.removeChild(bj);
+                bj.parentNode.removeChild(bj);
+            });
+
+
+            // 讀取#city內的HTML代碼
+            myClick("btn05", function(){
+                // 獲取id為city的節點
+                var city = document.getElementById("city");
+                alert(city.innerHTML);
+            });
+            
+            
+            // 設置#bj內的HTML代碼
+            myClick("btn06", function(){
+                // 獲取id為bj的節點
+                var bj = document.getElementById("bj");
+                bj.innerHTML = "天津";
+            });
+
+
+            // 採用innerHTML方式添加廣州
+            myClick("btn07", function(){
+                // 獲取id為city的節點
+                var city = document.getElementById("city");
+
+                // city.innerHTML += "<li>廣州</li>";
+
+                // 最好的方式
+                var gzLi = document.createElement("li");
+                gzLi.innerHTML = "廣州";
+                city.appendChild(gzLi);
+            });
+
+
+            function myClick(idStr, fun){
+                var btn = document.getElementById(idStr);
+                btn.onclick = fun;
+            };
+
+
+
+
+
+        };    
+
+    </script>
+
+    <style>
+        #outer{
+            float: left;
+        }
+
+        #favour{
+            border: solid 1px black;
+            padding: 10px;
+            padding-right: 50px;
+        }
+
+        #info{
+            border: solid 1px black;
+            border-top: none;
+            padding: 10px;
+            padding-right: 50px;
+        }
+
+        li{
+            list-style-type: none;
+            display: inline-block;
+            background-color: #bfa;
+            border: black 1px solid;
+            margin-left: 5px;
+            padding: 3px;
+        }
+
+        #button{
+            float: left;
+            margin-left: 50px;
+        }
+
+        #button button{
+            display: block;
+            width: 300px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="outer">
+        <div id="favour">
+            <p>CITY</p>
+            <ul id="city">
+                
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>東京</li>
+                <li>首爾</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="button">
+        <button id="btn01">創建廣州節點，添加到#city下</button>
+        <button id="btn02">將廣州節點插入到#bj前面</button>
+        <button id="btn03">使用廣州節點代替#bj節點</button>
+        <button id="btn04">刪除#bj節點</button>
+        <button id="btn05">讀取#city內的HTML代碼</button>
+        <button id="btn06">設置#bj內的HTML代碼</button>
+        <button id="btn07">採用innerHTML方式添加廣州</button>
+
+    </div>
+
+</body>
+</html>

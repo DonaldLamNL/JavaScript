@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            > 大於號
+
+            < 小於號
+
+            >= 大於或等於號
+
+            <= 小於或等於號
+
+            非數值情況：
+                - 對於非數值進行比較時，會先將其轉換為數字，再進行比較
+                - 任何值和NaN比較都是false
+            特殊情況：
+                - 如果比較負號兩側都是字符串時，不會將其轉換為數字進行比較，而會比較字符串裏的Unicode編碼
+                - 而比較字符編碼時，是一位一位的比較
+                - 除非相同，否則便會得出結果
+        */ 
+
+
+        console.log("1" < "5");     // true
+        console.log("11" < "5");    // true
+
+        console.log("a" < "b");     // true
+        console.log("abc" < "b");   // true
+        /*
+            abc vs b
+            a vs b  //true  
+            then abc < a  //true
+
+            bbc vs b
+            b vs b  
+            then 比較後一位  b vs ''
+            so bbc > b
+        */ 
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

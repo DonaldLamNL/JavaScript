@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 設置按鈕回饋 // 無效，是會報錯的
+        // var btn = document.getElementById("btn");
+        // btn.onclick = function(){
+        //     alert("Hello");
+        // };
+
+        /*
+            onload事件會在整個頁面加載完成後才觸法
+            為window綁定一個onload事件
+                該事件對象的響應函數將會在頁面加載完成之後執行，
+                這樣確保我們的代碼執行時，所有的DOM對象以及加載完畢了
+            因此，如果要把script寫到head上面，就將代碼統一寫在window.onload裏，確保代碼在頁面加載後執行
+        */
+
+        window.onload = function(){
+            // 
+            var btn = document.getElementById("btn");
+
+            btn.onclick = function(){
+                alert("Hello");
+            };
+        };
+
+    </script>
+</head>
+<body>
+    
+    <button id="btn">Click Me</button>
+
+    <script>
+
+        /*
+            瀏覽器加載一個頁面時，是至上而下的順序加載的
+                讀取到一行，就運行一行，如果將script標籤寫到頁面的上面，
+                在代碼執行時，頁面還沒有加載，DOM對象也沒有加載，會導致無法獲取DOM對象
+                解決方法：
+                    1. 寫在下面
+                    2. window.onload = function(){};
+
+            將JS代碼編寫到頁面的下部，就是為了可以在頁面加載完畢以後再執行JS代碼
+        */
+
+        // 設置按鈕回饋 // 有效
+        // var btn = document.getElementById("btn");
+        // btn.onclick = function(){
+        //     alert("Hello");
+        // };
+
+    </script>
+
+</body>
+</html>

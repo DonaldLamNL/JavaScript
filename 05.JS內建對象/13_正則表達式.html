@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            正則表達式regular expression：
+                - 正則表達式用於定義一些字符串的規則
+                    計算機可以根據正則表達式，來檢查一個字符串是否符合規則，
+                    或者將字符串中符合規則的內容提取出來
+
+                - 創建正則表達式的對象
+                    1. 構造函數的語法：
+                        var 變量 = new RegExp("正則表達式", "匹配模式");
+                    - 使用typeof來檢查正則表達式會返回object
+                    - 這個正則表達式可以來檢查一個字符串中是否含有a
+                    - 在構造函數中可以傳遞一個匹配模式作為第二個參數，
+                        可以是
+                            i 忽略大小寫
+                            g 全局匹配模式
+
+                    2. 使用字面量來創建正則表達式的語法：
+                        var 變量 = /正則表達式/匹配模式;
+                    
+                    使用字面量的方式創建會更加簡單
+                        但是使用構造函數創建更加靈活
+
+                - 正則表達式的方法：
+                    test();
+                        - 使用這個方法可以檢查一個字符串是否符合正則表達式的規則
+                            如果符合則返回true，否則返回false
+        */
+
+        // 創建正則表達式的對象
+        var reg = new RegExp("a", "i");
+        var str = "a";
+        
+        console.log(reg.test(str));         // true
+        console.log(reg.test("abc"));       // true
+        console.log(reg.test("bcbc"));      // false
+        console.log(reg.test("bcAbc"));     // true
+        
+        
+        console.log("==================================");
+        /*
+            正則表達式寫法：
+                - | 表示或者的意思
+                - []裏面的內容也是或的關係
+                - [ab] == a|b
+                - [a-z] 任意小寫字母
+                - [A-Z] 任意大寫字母
+                - [A-z] 任意字母
+                - [0-9] 任意數字
+                - a[bde]c abc/adc/aec
+                - [^ ] 除了
+
+            
+        */
+       
+        var reg2 = /a|b/i;
+        console.log(reg2.test("bcAc"));     // true
+
+        reg2 = /[a-z]/i;
+        console.log(reg2.test("kjgfdx"))    // true
+        
+        reg2 = /a[bde]c/i;
+        console.log(reg2.test("bnaecijt"))  // true
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

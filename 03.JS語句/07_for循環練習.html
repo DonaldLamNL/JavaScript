@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            在頁面中接受一個用戶輸入數字來判斷該數字是否是質數
+        */
+
+        var num = prompt("請輸入一個大於1的整數：");
+        // 判斷值的合法性
+        if(num <= 1){
+            alert("輸入不合法。");
+        }else{
+            for(var i = 2; i <= num; i++){
+                if(i == num){
+                    alert("是質數");
+                }else if(num % i == 0){
+                    alert("不是質數");
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        可以將JS代碼寫到外部JS文件中，然後通過script標籤引入 
+        寫到外部文件可以在不同頁面中同時引用，也可以利用瀏覽器的緩存機制
+        推薦使用的方式
+
+        - script標籤一旦用於引入外部文件，就不能再編寫代碼，即便編寫瀏覽器也會忽略
+            如果需要則可以創建一個新的script標籤來編寫內部文件
+    -->
+    <script src="./02_JS外部文件.js">
+    
+        alert("我是內部的JS代碼");
+    </script>
+    <script>alert("我是內部的JS代碼2.0");</script>
+</head>
+<body>
+    <!-- 
+        可以將JS代碼編寫到標籤的onclick屬性中
+            - 當我們點擊按鈕時，JS代碼才會執行
+
+        雖然可以寫在標籤的屬性中，但他們屬於結構與行為耦合，不方便維護，不推薦使用
+    -->
+    <button onclick="alert('討厭，你點我幹嘛');">點我</button>
+
+    <!--  
+        可以將JS代碼寫到超連結的href屬性中，這也當點擊超連結時，會執行JS代碼
+    -->
+    <a href="javascript: alert('不讓你點');">你也點我</a>
+</body>
+</html>

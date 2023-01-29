@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./10_菜單樣式.css">
+
+    <script src="./Resources/tools.js"></script>
+
+    <script>
+
+        window.onload = function(){
+
+            /*
+                我們的每一個菜單都是一個div
+                    當div具有 collaspd 這個類時，div就是折疊狀態
+                    當div沒有這個類時，div就是展開
+
+                點擊菜單，切換菜單的顯示狀態 
+            */
+            // 獲取所有class為collapsed的span
+            var menuSpan = document.getElementsByClassName("menuSpan");
+
+            // 定義一個變量來保存當前打開的菜單
+            var openDiv = menuSpan[0].parentElement;
+           
+            // 為 span 綁定單擊響應函數
+            for(var i = 0; i < menuSpan.length; i++){
+                
+                // 獲取當前span的父元素
+                // menuSpan[i].parentDiv = this.parentElement;
+                
+                menuSpan[i].onclick = function(){
+                    
+                    var parentDiv = this.parentElement;
+
+                    // 切換菜單的顯示狀態
+                    toggleMenu(parentDiv);
+                    
+                    // 判斷 openDiv 和 parentDiv 是否相同
+                    if((parentDiv != openDiv) && !hasClass(openDiv, "collapsed")){
+                        // 打開菜單以後，應該關閉之前打開的菜單
+                        // 為了統一設置過渡效果，嘗試把 addClass 改為 toggleClass
+                        // addClass(openDiv, "collapsed");
+                        // 此處 toggleClass() 不需要有移除功能
+
+                        // toggleClass(openDiv, "collapsed");
+                        toggleMenu(openDiv);
+
+                    }
+
+                    // 修改openDiv為當前打開的Div
+                    openDiv = parentDiv;
+                    
+                    
+
+                };
+
+                // 點擊span，關閉其他菜單
+
+            }
+
+            /*
+                這個方法用來切換菜單折疊和顯示狀態
+            
+            
+            */
+
+            function toggleMenu(obj){
+                // 在切換類之前，獲取元素高度
+                var beginHeight = obj.offsetHeight;
+                    
+                    // 切換Div的顯示
+                    toggleClass(obj, "collapsed");
+
+                    // 在切換類之後，獲取元素高度
+                    var endHeight = obj.offsetHeight;
+
+                    // 動畫效果就是將高度從 beginHeight 向 endHeight 過渡
+                    // 將元素的高度重置為 beginHeight
+                    obj.style.height = beginHeight + "px";
+
+                    // 執行動畫
+                    move(obj, "height", endHeight, 20, function(){
+                        // 動畫執行完畢，內聯樣式已經沒有意義存在了
+                        obj.style.height = "";
+                    });
+            };
+
+
+        };
+
+
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="my_menu" class="sdmenu">
+        <div>
+            <span class="menuSpan">在線工具</span>
+            <a href="javascript:;">圖像優化</a>
+            <a href="javascript:;">收藏夾圖標生成器</a>
+            <a href="javascript:;">郵件</a>
+            <a href="javascript:;">htaccess密碼</a>
+            <a href="javascript:;">梯度圖像</a>
+            <a href="javascript:;">按鈕生成器</a>
+        </div>
+
+        <div class="collapsed">
+            <span class="menuSpan">支持我們</span>
+            <a href="javascript:;">推薦我們</a>
+            <a href="javascript:;">鏈接我們</a>
+            <a href="javascript:;">網絡資源</a>
+        </div>
+
+        <div class="collapsed">
+            <span class="menuSpan">合作夥伴</span>
+            <a href="javascript:;">JavaScript工具包</a>
+            <a href="javascript:;">CSS驅動</a>
+            <a href="javascript:;">CodingForums</a>
+            <a href="javascript:;">CSS例子</a>
+        </div>
+
+        <div class="collapsed">
+            <span class="menuSpan">測試電流</span>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+        </div>
+    </div>
+
+</body>
+</html>

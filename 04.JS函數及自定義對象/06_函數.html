@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            函數：
+                - 函數也是一個對象
+                - 函數中可以封裝一些功能(代碼)，在需要時可以執行這些功能
+                - 函數中可以保存一些代碼，在需要時調用
+                - 使用typeof檢查一個函數對象會返回function
+        */
+
+        /*
+            創建函數對象：構造函數
+                可以將要封裝的代碼以字符串的形式傳遞給構造函數
+                但在實際開發中很少使用構造函數來創建一個函數對象
+                - 語法：
+                    var 函數名 = new Function('語句;');
+
+                    封裝到函數的代碼不會立即執行
+                    函數中的代碼會再函數調用的時候執行
+                    - 調用函數語法：
+                        函數對象()；
+                    當調用函數時，函數中封裝的代碼會按照順序執行
+
+                函數具有所有普通對象的功能，比普通對象更強大的是函數能具有功能
+        */
+
+        var fun = new Function("console.log('Hello World 1');");
+        fun();
+
+        fun.hello = "Hi";
+        console.log(fun.hello);
+
+        /*
+            創造函數對象：使用函數聲明
+                - 語法：
+                    function 函數名([形參1, 形參2, ..., 形參n]){
+                        語句...
+                    }
+        */
+
+        function fun2(x = 1, y = 2){
+            console.log("Hello World 2");
+        }
+
+        fun2();
+
+        /*
+            創造函數對象：使用函數表達式
+                - 語法：
+                    var 函數名 = function([形參1, 形參2, ..., 形參n]){
+                        語句...
+                    }
+        */
+
+        var fun3 = function(){
+            console.log("Hello World 3");   
+        }
+        
+        fun3();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

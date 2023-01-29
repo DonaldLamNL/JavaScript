@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            定義一個用來求兩個和的函數
+                - 可以在函數的()中指定一個或多個形參
+                    多個形參之間使用,隔開，聲明形參就相等於在函數內部聲明了對應的變量
+                - 函數的實參可以是任意的數據類型
+
+                - 在調用函數時，可以在()中指定實參
+                    實參將會賦值給函數中對應的形參
+
+                - 調用函數時，解析器不會檢查實參的類型
+                    所以要注意是否有可能接收到非法的參數，如果有可能則需要對參數進行類型的檢查
+
+                - 調用函數時，解析器也不會檢查實參的數量
+                    多餘的實參不會被賦值
+                    如果實參的數量少於形參的數量，則沒有對應形參的實參，該形參的值則是undefined
+                    
+        */
+       
+        function sum(x, y){
+           console.log(x + y);
+        }
+        
+        sum(1, 2);              // 3
+
+        sum(1, "hello");        // 1hello
+        
+        sum(true, false);       // 1
+        
+        sum(123, 456, "hello"); // 579
+        
+        sum(1);                 // NaN
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

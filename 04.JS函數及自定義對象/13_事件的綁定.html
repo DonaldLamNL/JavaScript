@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+            /*
+                點擊按鈕以後，彈出一個內容
+            */
+
+            var btn01 = document.getElementById("btn01");
+
+            /*
+                使用 對象.事件 = 函數 的形式綁定響應函數
+                    它只能同時為一個元素的一個事件綁定一個響應函數
+                    不能綁定多個，如果綁定多個則後面的會覆蓋掉前面的
+            */
+
+            // 為btn01綁定第一個單擊響應函數  
+            // btn01.onclick = function(){
+            //     alert(1);
+            // };
+            
+            // // 為btn01綁定第二個單擊響應函數  
+            // btn01.onclick = function(){
+            //     alert(2);
+            // };
+
+            /*
+                addEventListener()
+                    - 通過這個方法也能為元素綁定響應函數
+                    - 參數：
+                        1. 事件的字符串，不要on
+                        2. 會掉函數，當事件觸法時，該函數會被調用
+                        3. 是否在捕獲階段觸法事件，需要一個布爾值，一般都、傳false
+                使用 addEventListener() 可以同時為一個元素的相同事件同時綁定多個響應函數
+                    這樣當事件觸法時，響應函數將會按照函數的綁定順序執行
+                
+            */
+            btn01.addEventListener("click", function(){
+                alert(1);
+            }, false);
+            btn01.addEventListener("click", function(){
+                alert(2);
+            }, false);
+        };
+
+
+
+    </script>
+</head>
+<body>
+
+    <button id="btn01">Click Me</button>
+    
+</body>
+</html>

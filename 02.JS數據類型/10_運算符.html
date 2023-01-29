@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            運算符可以對一個或者多個值進行運算，並獲取運算結果
+                比如：typeof就是運算符，可以獲得一個值的類型
+                    他會將該類型以字符串的形式返回
+                    number string boolean undefined object
+            
+            算術運算符
+                當對非Number類型的值進行運算時，會將這些值轉換為Number，然後再進行運算
+                    任何值和NaN做運算都將NaN
+
+                +   
+                    可以對兩個值進行加法運算，並將結果返回
+                    如果對兩個字符串進行加法運算，則會做拼串，會將兩個字符串拼接為一個字符串，並返回
+                    任何的值和字符串進行加法運算，都會先轉換為字符串，然後再與字符串進行拼串
+                -
+                    可以對兩個值進行減法運算，並將結果返回
+                *
+                    可以對兩個值進行乘法運算，並將結果返回
+                /
+                    可以對兩個值進行除法運算，並將結果返回
+                %
+                    取模運算（取餘數）
+
+        */ 
+
+        var a = 123;
+        var result = typeof a;
+
+        result = "123" + "456";         //123456
+
+        var str = "鋤禾日當午，" +
+                   "汗滴禾下土，" +
+                   "誰知盤中餐，" +
+                   "粒粒皆辛苦";
+
+        result = 123 + "1";             //1231
+        result = true + "Hello";        //trueHello
+
+        /*
+            我們可以利用這一特點來將任意一個數據類型轉換為String
+                只需要為任意數據類型加上一個 "" 空串，即可轉換為String
+                這是一種隱式轉換，有瀏覽器自動完成，實際上他也是調用了String()函數
+        
+        */ 
+        var c = 123;
+        c = c + "";
+
+        console.log(typeof result);
+        console.log(result);
+        console.log(str);
+
+        var d = 123;
+
+        d = 100 - "1";      //99
+        d = 2 * "8";        //16
+        d = 2 * undefined;  //0
+        d = 2 * null;       //0
+        d = 2 * NaN;        //NaN
+        d = 3 / 2;          //1.5
+        d = 3 % 2;          //1
+
+        console.log("d = " + d);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

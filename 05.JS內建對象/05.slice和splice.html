@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            slice()
+                - 可以用來在數組中提取指定元素
+                - 該方法不會改編原數組，而是將截取到的元素封裝到一個新的數組中返回
+                - 參數：
+                    第一個參數. 截取開始的位置的索引，包含開始索引
+                    第二個參數. 截取結束的位置的索引，不包含結束索引
+                        - 第二個參數可以省略不寫，此時會截取從開始索引往後的所有元素
+                    - 索引可以傳遞一個負值，如果傳遞一個負值則從後往前計算
+                        -1 代表倒數第一個
+                        -2 代表倒數第二個
+        */
+
+        var arr = ["Amy", "Billy", "Cally", "Donald", "Frank"];
+
+        var result = arr.slice(0, 2);       // "Amy", "Billy"
+        
+        result = arr.slice(2);              // "Cally", "Donald", "Frank"
+        
+        result = arr.slice(1, -1);          // "Billy", "Cally", "Donald"
+
+        console.log(result);
+
+
+        /*
+            splice()
+                - 可以用於刪除數組中的指定元素
+                - 使用splice()會影響到原數組，會將指定元素從原數組中刪除，
+                    並將被刪除的元素作為返回值返回
+                - 參數：
+                    第一個參數. 表示開始位置的索引
+                    第二個參數. 表示刪除的數量
+                    第三個及以後的參數. 可以傳遞一些新的元素，這些元素將會自動插入開始位置索引的前面 
+        
+        
+        */
+
+        var result = arr.splice(0, 1, "John");
+
+        console.log("arr = " + arr);
+        console.log("deleted elements are " + result);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

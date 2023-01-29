@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            一般我們都是使用for循環去遍歷數組，JS中還為我們提供另一個方法用來簡歷數組   forEach()
+                - 這個方法只支持IE8以上的瀏覽器
+
+            forEach() 方法：
+                - 這個方法需要一個函數作為參數
+                    像這種函數由我們創建，但是不由我們調用的，這種函數被成為回調函數
+                - 數組中有幾個元素，函數就會執行幾次，
+                    每次執行時，瀏覽器會將遍歷到的函數以實參的形式傳遞進來，
+                    我們可以定義形參來讀取這些內容
+                - 瀏覽器會在回調函數中傳遞3個參數：
+                    1. 當前正在遍歷的元素
+                    2. 當前正在遍歷的元素的索引
+                    3. 正在遍歷的數組
+
+        
+        */
+
+        var arr = ["Amy", "Billy", "Cally", "Donald", "Frank"];
+
+        arr.forEach(function(value, index, obj){
+            console.log("value = " + value);
+            console.log("index = " + index);
+            console.log("obj = " + obj);
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            參數返回值
+                可以使用 return來設置函數的返回值
+                - 語法：
+                    return 值;
+
+                return後的值將會作為函數的執行結果返回
+                    可以定義一個變量來接收該結果
+                    函數返回什麼值，用來接收的變量的值就是什麼
+
+                在函數中，return後的語句都不會執行
+
+                如果return語句後不跟任何值，就相當於返回undefined
+                如果函數中不寫return也會返回undefined
+
+                return後可以跟任意類型的值
+        
+
+        */
+
+        function sum(a, b, c){
+            var d = a + b + c;
+
+            return d;
+
+            alert("Hello");
+        }
+        
+        var result = sum(1, 2, 3);
+
+        alert(result);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            返回值的數據類型：
+                返回值可以是任意的數據類型
+                也可以是一個對象
+                也可以是一個函數
+        
+        
+        */
+
+        // 返回對象
+        function fun(){
+            obj = {
+                name: "Tom"
+            }
+            return obj;
+        }
+        var a = fun();
+        console.log(a.name);
+
+        //返回函數
+        function fun2(){
+            function fun3(){
+                alert("Hello World");
+            }
+            return fun3;
+        }
+        a = fun2();
+        console.log(a);
+        a();
+
+
+
+        function fun4(){
+            alert("函數開始執行");
+
+            for(var i = 0; i < 5; i++){
+                if(i == 2){
+                    // 使用break則退出循環
+                    // break;
+                    
+                    // 使用continue則跳過當次循環
+                    // continue;
+
+                    // 使用return則可以結束整個函數
+                    // return;
+                }
+                console.log(i);
+            }
+            alert("函數執行完畢");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

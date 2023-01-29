@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /*
+            Location
+                - 該對象中封裝了瀏覽器的地址欄信息
+        */
+
+        window.onload = function(){
+
+            /*
+                屬性
+                    location
+                        - 如果直接打印 location ，則可以獲取地址欄的信息(當前頁面的完整路徑)
+                        - 如果直接將 location 屬性修改為一個完整的路徑，或相對路徑
+                            則頁面會自動跳轉到該路徑，並且會生成相應的歷史紀錄
+                方法
+                    assign()
+                        - 用來跳轉到其他頁面，作用和直接修改 location 一樣
+                    reload()
+                        - 用於重新加載當前頁面，作用與刷新按鈕一樣
+                    replace()
+                        - 可以使用新的頁面替換當前頁面，調用完畢也會跳轉頁面
+                            但是他不會生成歷史紀錄，不能使用回退按鈕回退
+
+
+
+            */
+
+            var btn = document.getElementById("btn");
+
+            btn.onclick = function(){
+
+                // location = "http://www.google.com"
+                
+                // location.assign("http://www.youtube.com");
+                
+                // location.reload();
+
+                location.replace("http://www.facebook.com");
+
+            };
+        };
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+    <h1>Location</h1>
+
+    <button id="btn">Click Me</button>
+
+    <br><br>
+    <input type="text" name="" id="">
+
+    <br><br>
+    <a href="./03_test01.html">Test01</a>
+
+</body>
+</html>

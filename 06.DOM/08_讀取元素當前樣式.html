@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function(){
+
+            // 點擊按鈕讀取box1樣式
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                // 讀取box1的寬度
+                // alert(box1.style.width);
+
+                /*
+                    獲取元素當前顯示的樣式：
+                        - 語法：
+                            元素.currectStyle.樣式名
+                        - 他可以用來讀取當前元素正在顯示的樣式
+                        - 如果當前元素沒有設置該樣式，則獲取他的默認值
+                    currectStyle只有IE支持，其他瀏覽器不支持
+                */
+
+                /*
+                    在其他瀏覽器中可以使用
+                        getComputedStyle()的方法來獲取元素當前的樣式
+                        這個方法是window的方法，可以直接使用
+                    需要兩個參數：
+                        1. 要獲取樣式的元素
+                        2. 可以傳遞一個偽元素，一般都傳null
+                    該方法會返回一個對象，對象中封裝了當前元素對於的樣式
+                        可以通過對象.樣式名 獲取樣式
+                        - 如果獲取的樣式沒有設置，則會獲取到真實的值而不是默認值
+                            比如：沒有設置width，不會獲取auto，而是一個長度
+                
+                */
+                alert(getComputedStyle(box1, null).backgroundColor);
+
+            };
+
+
+        };
+
+    </script>
+
+</head>
+<body>
+
+    <div id="box1"></div>
+    <button id="btn01">Click Me</button>
+
+</body>
+</html>

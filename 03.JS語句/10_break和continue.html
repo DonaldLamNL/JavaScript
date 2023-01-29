@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            break 關鍵字可以用來推出switch或循環語句
+                break默認只會對離他最近的循環起作用
+
+            - 可以為循環語句創建一個 label 標籤，來標識當前的循環
+                label:循環語句
+                使用break語句時，可以在break後跟著一個label
+                    這樣break將會結束指定的循環，而不是最近的
+        */
+        outer:
+        for(var i = 0; i < 5; i++){
+            console.log("@外層循環" + i);
+            for(var j = 0; j < 5; j++){
+                break outer;
+                console.log("@內層循環" + j);
+            }
+        }
+
+        /*
+            continue 關鍵字可以跳過當次循環
+            同樣continue也是默認只會對離他最近的循環起作用
+        */
+        outer:
+        for(var i = 0; i < 5; i++){
+            for(var j = 6; j < 10; j++){
+                if(j == 8){
+                    continue outer;
+                }
+                console.log(j);
+            }
+            console.log(i);
+        }
+       
+       
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

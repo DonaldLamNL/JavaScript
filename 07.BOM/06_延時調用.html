@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var num = 1;
+
+        // 開啟一個定時器
+        // setInterval(function(){
+        //     console.log(num++);
+        // }, 3000);
+
+        /*
+            setTimeout()
+                - 延時調用
+                - 一個函數不馬上執行，而是隔一段事件以後再執行，而且只會執行一次
+                - 使用 clearTimeout() 來關閉延時調用
+
+            延時調用和定時調用的區別：
+                定時調用會執行多次，而延時調用只會調用一次
+
+            延時調用和定時調用實際上是可以互相代替的，開發中可以根據需要調用
+                但定時調用更加靈活
+        */
+
+        // 開啟一個延時調用
+        var timer = setTimeout(function(){
+            console.log(num++);
+        }, 3000);
+
+        clearTimeout(timer);
+        
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

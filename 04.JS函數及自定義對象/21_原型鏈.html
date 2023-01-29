@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function MyClass(){
+            
+        }
+        var mc = new MyClass();
+        MyClass.prototype.name = "我是原型中的名字";
+        /*
+            使用 in 檢查對象是否含有某個屬性是，如果對象沒有但原型有，也會返回true
+                - 可以使用 hasOwnProperty 來檢查對象自身中是否含有該屬性
+        */
+        console.log("name" in mc);      // true
+        console.log(mc.hasOwnProperty("name"));     // false
+
+
+        /*
+            原型對象也是對象，所以它也有原型
+                當我們在使用一個對象的屬性或方法時，會先在自身中尋找，
+                自身如果有，則直接使用，
+                如果沒有，去原型對象中尋找，如果原型對象中有，則使用
+                如果沒有，則去原型的原型中尋找，直到找到Object對象的原型
+
+                Object對象的原型沒有原型，所以如果在Object中依然沒有找到則返回null
+        */
+        console.log(mc.hasOwnProperty("hasOwnProperty"));     // false
+        console.log(MyClass.__proto__.hasOwnProperty("hasOwnProperty"));    // false
+        console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));   // true
+        console.log(mc.__proto__.__proto__.__proto__);      // null
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

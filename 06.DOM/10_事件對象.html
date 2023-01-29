@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #areaDiv{
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #showMsg{
+            width: 300px;
+            height: 20px;
+            border: 1px black solid;
+        }
+
+    </style>
+
+    <script>
+        
+        window.onload = function(){
+            /*
+                當鼠標在areaDiv中移動是，在showMsg中顯示鼠標的座標
+            */
+            
+            // 獲取兩個div
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+
+            /*
+                onmousemove
+                    - 該事件會當鼠標在元素中移動時觸法
+
+                事件對象
+                    - 當事件的響應函數被觸法時，瀏覽器每次都會將一個事件對象作為實參傳遞進響應函數
+                        在事件對象中封裝了當前事件的相關一切信息，比如：鼠標的座標、鍵盤按下的按鍵、鼠標滾輪的方向等
+            */
+            areaDiv.onmousemove = function(event){
+                /* 
+                    clientX可以獲取鼠標指針的水平座標
+                    clientY可以獲取鼠標指針的垂直座標
+                
+                */
+
+                event = event || window.event;
+
+                showMsg.innerHTML = "x = " + event.clientX + " y = " + event.clientY;
+
+                console.log("x = " + event.clientX + " y = " + event.clientY);
+
+                // 在showMsg中顯示鼠標座標
+
+            };
+
+        };
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="areaDiv"></div>
+    <br>
+    <div id="showMsg"></div>
+
+</body>
+</html>

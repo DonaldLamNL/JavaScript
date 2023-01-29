@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+            BOM
+                - 瀏覽器對象模型
+                - BOM可以使我們通過JS來操作瀏覽器
+                - 在DOM中為我們提供一組對象，用來完成對瀏覽器的操作
+                - BOM對象：
+                    Window
+                        - 代表整個瀏覽器的窗口，同時 window 也是網頁中的全局對象
+                    Navigator
+                        - 代表當前瀏覽器的信息，通過該對象可以來識別不同的瀏覽器
+                    Location
+                        - 代表當前瀏覽器的地址欄信息，
+                            通過 Location 可以獲取地址欄信息，獲取操作瀏覽器跳轉頁面
+                    History
+                        - 代表瀏覽器的歷史紀錄，可以通過該對象來操作瀏覽器的歷史紀錄
+                            由於隱私的原因，該對象不能獲取到具體的歷史紀錄，只能操作瀏覽器向前或向後翻頁
+                            而且該操作只在當次訪問時有效
+                    Screen
+                        - 代表用戶的屏幕信息，通過該對象可以獲取用戶顯示器的相關信息
+
+                    這些BOM對象在瀏覽器中都是作為window對象的屬性保存的
+                        可以通過window對象來使用，也可以直接使用
+        */
+
+        console.log(window.location);
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

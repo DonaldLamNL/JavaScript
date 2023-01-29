@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            垃圾回收(GC)
+                - 程序運行過程中會產生垃圾，這些垃圾積攢過多會導致程式運行速度過慢
+                    因此需要一個垃圾回收機制來處理程序運行過程中產生的垃圾
+
+                - 當一個對象沒有任何變量或屬性對它進行引用，此時我們將永遠無法操作該對象
+                    這種對象就是一個垃圾，這種對象過多會佔用大量的內存空間，倒是程序運行速度變慢
+                    所以這種垃圾必須進行清理
+
+                - 在JS中擁有自動垃圾回收機制，自動將這些垃圾對象從內存中銷毀
+                    我們不需要也不能進行垃圾回收的操作
+
+                - 我們需要做得就只是要將不再使用的對象設置null即可
+
+        
+        
+        */
+
+        var obj = new Object();
+
+        obj = null;
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

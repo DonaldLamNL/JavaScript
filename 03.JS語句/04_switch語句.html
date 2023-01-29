@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            switch語句
+                - 執行流程：
+                    執行時會依序將case後的表達式的值和switch後條件表達式的值進行全等比較，
+                        如果為true則從當前case開始執行代碼
+                            當前case後的所有代碼都會執行(不是只執行他自己的)
+                            因此使用 break關鍵字 來退出switch語句，往後就不執行
+                        如果為false則繼續向下比較
+                - 語法：
+                    switch(條件表達式){
+                        case 表達式:
+                            語句...
+                            break;
+                        case 表達式:
+                            語句...
+                            break;
+                        default:
+                            語句...
+                    }
+
+                - 用法一：
+                    switch(true){
+                        case 條件表達式:
+                            語句...
+                            break;
+                        case 條件表達式:
+                            語句...
+                            break;
+                        default:
+                            語句...
+                    }
+        */
+
+        /*
+            switch語句練習一：
+                分數 大於等於60 則及格，小於60 則不及格
+        */
+        
+            var score = 64;
+            switch(true){
+                case score >= 60:
+                    console.log("pass");
+                    break;
+                default:
+                    console.log("fail");
+            }
+            
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

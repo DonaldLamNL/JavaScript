@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            對象中的屬性值可以是任何的數據類型，所以也可以是函數
+
+            函數也可以成為對象的屬性
+                如果函數成為一個對象的屬性保存
+                此函數便稱為 對象的方法
+                調用函數就等於調用對象的方法(method)
+
+                但他也只是名稱上的區別，沒有其他區別
+                調用方法 vs 調用函數    沒有本質差別，只是名稱上的區分
+
+        */
+
+        var obj = {
+            name: "Tom",
+        }
+
+        obj.age = 18;
+
+        obj.sayName = function(){
+            console.log("My name is " + obj.name);
+        }
+
+        // 調用obj的sayName方法
+        obj.sayName();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

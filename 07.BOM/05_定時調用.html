@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        window.onload = function(){
+
+            var count = document.getElementById("count");
+
+            // 使count內容自動切換
+            /*
+                setInterval()
+                    - 定時調用
+                    - 可以將一個函數每隔一段時間執行一次
+                    - 參數：
+                        1. 回調函數，這個函數會每隔一段時間調用一次
+                        2. 每次調用間隔的時間，單位是毫秒
+                    
+                    - 返回值：
+                        返回一個Number類型的數據
+                        這個數字用來作為定時器的唯一標識
+                
+                clearInterval();
+                    - 可以用來關閉一個定時器
+                    - 方法中需要一個定時器的標識作為參數，這樣將關閉標識對應的定時器
+            
+            */
+            var num = 1;
+            var timer = setInterval(function(){
+                count.innerHTML = num++;
+            }, 50)
+            console.log(timer);
+
+            clearInterval(timer);
+
+        };
+
+
+    </script>
+
+</head>
+<body>
+    
+    <h1 id="count">1</h1>
+
+</body>
+</html>

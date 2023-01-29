@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            使用對象字面量 {} 來創建對象
+        */
+
+        var obj = {};
+        console.log(typeof obj);
+        
+        obj.name = "John";
+        console.log(obj.name);
+        
+        /*
+            使用對象字面量，可以在創建對象時，直接指定對象中的屬性
+                - 語法：
+                    {屬性名: 屬性值, 屬性名: 屬性值}
+
+            對象字面量的屬性名可以加引號，也可以不加，建議不加
+            但如果要使用一些特殊的名字則必須加引號
+
+            屬性名和屬性值是一組一組的名值對結構，名和值之間使用:連接，多個名值對之間使用,隔開
+            如果一個屬性之後沒有其他屬性則不要寫,
+
+        */
+       
+       var obj2 = {
+            name: "Amy",
+            age: 18,
+            gender: "Female",
+            test: {
+                name: "Tom"
+            }
+        };
+       console.log(obj2);
+       console.log(obj2.test);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

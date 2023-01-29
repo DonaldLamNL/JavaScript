@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            相等 ==
+                相等運算符用來比較兩個值是否相等
+                    - 如果相等則返回true，否則返回false
+                使用 == 來做相等運算
+                    - 當使用==來比較兩個不同類型的值
+                        則會自動進行類型轉換，將其轉換為相同的類型，然後進行比較
+
+            不相等 != 
+                不相等用來判斷兩個值是否不相等，與相等運算相反
+                使用 != 來做不相等運算
+                    - 當使用!=來比較兩個不同類型的值
+                        也會自動進行類型轉換，將其轉換為相同的類型，然後進行比較
+        
+            全等 ===
+                用來判斷兩個值是否全等
+                    - 與相等類似，但不會對數值進行自動類型轉換
+                    - 如果兩個值類型不同，直接返回false
+
+            不全等 !==
+                用來判斷兩個值是否不全等
+                    - 與不相等類似，但不會對數值進行自動類型轉換
+                    - 如果兩個值類型不同，直接返回true
+        */ 
+
+        console.log(true == "1");       //true
+        console.log(true == "hello");   //true
+        console.log(null == 0);         //false
+        
+        /*
+            undefined 衍生自 null
+            所以兩個值做相等判斷時，會返回true
+        */ 
+       console.log(undefined == null);  //true
+       
+        /*
+            NaN不和任何值相等，包括他本身
+                因此不可以通過 b == NaN 來判斷b是否NaN
+                但可以透過 isNaN() 函數來判斷一個值是否NaN
+        */ 
+        var b = NaN;
+        console.log(NaN == undefined);  //false
+        console.log(NaN == NaN);        //false
+        console.log(isNaN(b));          //true
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

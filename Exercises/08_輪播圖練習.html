@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        window.onload = function(){
+
+            var img1 = document.getElementById("img1");
+            
+            var imgAll = ["./Resources/01/1.jpg","./Resources/01/2.jpg","./Resources/01/3.jpg","./Resources/01/4.jpg","./Resources/01/5.jpg","./Resources/01/6.jpg"]
+            
+            var index = 0;
+            var timer;
+            
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                /*
+                    目前，我們每點擊一次就會開啟一個定時器
+                        點擊多次就會開啟多次定時器，這就導致圖片的切換速度過快，
+                        並且我們只能關閉最後一次開啟的定時器
+                    
+                    解決方法：在開啟定時器之前，需要將上一個定時器關閉
+                        在開啟定時器之前，需要將當前元素上其他定時器關閉
+                */
+                clearInterval(timer);
+               
+                timer = setInterval(function(){
+                    index++;
+    
+                    // if(index >= imgAll.length){
+                    //     index = 0;
+                    // }
+                    index %= imgAll.length;
+    
+    
+                    img1.src = imgAll[index];
+                }, 500);
+            };
+
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                /*
+                    clearInterval() 可以接收任意參數
+                        如果參數是一個有效的定時器標識，則停止對應的定時器
+                        如果參數不是一個有效的標識，則什麼也不做
+
+                
+                
+                */
+                clearInterval(timer);
+            };
+
+
+        };
+
+    </script>
+
+
+</head>
+<body>
+
+    <img id="img1" src="./Resources/01/1.jpg" alt="">
+
+    <button id="btn01">開始</button>
+    
+    <button id="btn02">停止</button>
+
+</body>
+</html>

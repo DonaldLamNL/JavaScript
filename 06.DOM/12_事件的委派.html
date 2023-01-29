@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        
+        window.onload = function(){
+
+            var ul = document.getElementById("ul");
+
+            /*
+                為每一個超鏈接綁定單擊響應函數
+                這裏為每一個超連結都綁定了一個單擊響應函數，這種操作比較麻煩
+                    而且這些操作只能為已有的超鏈接設置事件，二新添加的超連結必須重新綁定
+            */
+            var allA = document.getElementsByTagName("a");
+            // for(var i = 0; i < allA.length; i++){
+            //     allA[i].onclick = function(){
+            //         alert("hello");
+            //     };
+            // }
+
+            /*
+                我們希望只綁定一次事件，即可應用到多個的元素上，即使元素是後添加的
+                我們可以嘗試將其綁定給元素的共同祖先元素
+
+                事件委派
+                    - 將事件統一綁定給元素的共同祖先元素，這樣當後代元素上的事件觸發時，會一直冒泡都祖先元素
+                        從而通過祖先元素的響應函數來處理事件
+                    - 事件委派是利用了冒泡，通過委派可以減少事件綁定的次數，提高程序的性能
+            
+            */
+            // 為ul綁定單擊響應函數
+            ul.onclick  =function(event){
+                // 我們期望如果觸發事件的對象是我們期望的元素，則執行，否則不執行
+                if(event.target.className == "link"){
+                    alert("Hello");
+                }
+
+                /*
+                    target
+                        - event中的target表示觸發事件的對象
+                */
+
+                // alert("ul單擊響應函數");
+                
+            };
+
+
+
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;' class='link'>新建的超鏈接</a>"
+                ul.appendChild(li);
+            };
+
+        };
+
+
+    </script>
+
+</head>
+<body>
+
+    <button id="btn01">添加超連結</button>
+    
+    <ul id="ul" style="background-color: #bfa;">
+        <li>
+            <p>I am p element.</p>
+        </li>
+        <li><a href="javascript:;" class="link">超鏈接一</a></li>
+        <li><a href="javascript:;" class="link">超鏈接二</a></li>
+        <li><a href="javascript:;" class="link">超鏈接三</a></li>
+    </ul>
+
+</body>
+</html>

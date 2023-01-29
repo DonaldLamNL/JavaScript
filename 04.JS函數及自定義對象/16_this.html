@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            解析器在調用函數時，每次都會向函數內部傳遞進一個隱含的參數
+                這個隱含參數就是this, this指向的是一個對象
+                這個對象稱為函數執行的上下文對象
+                    根據函數調用方式的不同，this會指向不同的對象
+                        1. 以函數的形式調用時，this永遠都是window
+                        2. 以方法的形式調用時，this就是調用方法的對象
+        */
+        
+        var name = "global name";
+        // 創建一個函數
+        function fun(a, b){
+            // console.log("a = " + a + ", b = " + b);
+            // console.log(name);
+            console.log(this.name);
+        }
+        // 創建兩個對象
+        var obj = {
+            name: "name_1",
+            sayName: fun
+        };
+        var obj2 = {
+            name: "name_2",
+            sayName: fun
+        };
+
+        // console.log(obj.sayName == fun);        //true
+
+        fun();
+        obj.sayName();
+        obj2.sayName();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
